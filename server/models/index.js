@@ -1,5 +1,5 @@
 const User = require('./User');
 const Podcast = require('./Podcast');
+const Genre = require('./Genre');
 
-module.exports = { User };
-module.exports = { Podcast };
+module.exports = { User, Podcast, Genre };
