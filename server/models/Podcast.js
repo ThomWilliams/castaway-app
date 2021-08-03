@@ -50,9 +50,6 @@ const podcastSchema = new Schema({
   explicit_content: {
     type: Boolean,
   },
-  total_episodes: {
-    type: INT,
-  },
   extra: {
     type: Object,
     properties: {
