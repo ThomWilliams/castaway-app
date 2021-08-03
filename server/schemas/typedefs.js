@@ -21,15 +21,21 @@ const typeDefs = gql`
     language: String
     publisher: String
     website: String
-    itunes_id: INT
-    total_episodes: INT
-    latest_pub_date_ms: INT
-    earliest_pub_date_ms: INT
+    itunes_id: ID
+    total_episodes: Int
+    latest_pub_date_ms: Int
+    earliest_pub_date_ms: Int
     explicit_content: Boolean
 #    Check three below
-    extra: Object!
-    genre_ids: [Array!]
-    episodes: [Array!]
+    extra: [String]!
+    genre_ids: [ID!]
+    episodes: [Int!]
+  }
+
+  type Genre {
+    id: ID
+    name: String
+    parent_id: ID
   }
 
   type Auth {
@@ -47,20 +53,24 @@ const typeDefs = gql`
     language: String
     publisher: String
     website: String
-    itunes_id: INT
-    total_episodes: INT
-    latest_pub_date_ms: INT
-    earliest_pub_date_ms: INT
+    itunes_id: ID
+    total_episodes: Int
+    latest_pub_date_ms: Int
+    earliest_pub_date_ms: Int
     explicit_content: Boolean
 #    Check three below
-    extra: Object!
-    genre_ids: [Array!]
-    episodes: [Array!]
+    extra: [String]!
+    genre_ids: [ID!]
+    episodes: [String!]
   }
 
   type Query {
     user: User
-    podcast: Podcast
+    podcast(podcastId: ID!): Podcast
+    podcasts: [Podcast]!
+    me: User
+    genre(genreId: ID!): Genre
+    genres: [Genre]!
   }
 
   type Mutation {
@@ -69,6 +79,7 @@ const typeDefs = gql`
     updateUser(username: String!, email: String!, password: String!, gender: String!, dob: String!): Auth
     savePodcast(podcastData: PodcastInput!): User
     removePodcast(_id: ID!): User
+    addPodcast(podcasts: [ID]!): Podcast
   }
 
 `;

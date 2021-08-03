@@ -36,16 +36,16 @@ const podcastSchema = new Schema({
     type: String,
   },
   itunes_id: {
-    type: INT,
+    type: Number,
   },
   total_episodes: {
-    type: INT,
+    type: Number,
   },
   latest_pub_date_ms: {
-    type: INT,
+    type: Number,
   },
   earliest_pub_date_ms: {
-    type: INT,
+    type: Number,
   },
   explicit_content: {
     type: Boolean,
@@ -83,7 +83,7 @@ const podcastSchema = new Schema({
   genre_ids: {
     type: Array,
     items: {
-      type: INT,
+      type: Number,
     },
     example: [],
   },
@@ -115,7 +115,7 @@ const podcastSchema = new Schema({
           type: String,
         },
         pub_date_ms: {
-          type: INT,
+          type: Number,
         },
       },
     },
