@@ -193,6 +193,15 @@ section {
   padding: 5px;
 }
 
+.label {
+  font-size: 14px;
+}
+
+.selector {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
 
 .form {
   min-width: 70%;
