@@ -202,6 +202,31 @@ section {
   margin-bottom: 20px;
 }
 
+/* Player */
+
+.audio-player {
+  background-color: #b7b7b7 !important;
+  padding: 0.5rem;
+  border-radius: 10px;
+  filter: invert(100%);
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.cover {
+  padding: 0 70px 0 70px;
+  width: -webkit-fill-available;
+}
+
+.podcast-info {
+  padding: 0 20px 0 20px;
+}
+
+.podcast-info-description {
+  font-size: 0.85rem;
+  line-height: 1.4rem;
+  padding-top: 10px;
+}
 
 .form {
   min-width: 70%;
