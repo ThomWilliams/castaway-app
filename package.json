@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ThomWilliams/team-3-project-3#readme",
   "dependencies": {
     "apollo-server-express": "^2.25.2",
-    "concurrently": "^6.2.0"
+    "concurrently": "^6.2.0",
+    "react-select": "^4.3.1"
   }
 }
