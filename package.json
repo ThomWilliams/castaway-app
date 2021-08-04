@@ -24,6 +24,7 @@
     "@apollo/client": "^3.4.4",
     "apollo-server-express": "^2.25.2",
     "concurrently": "^6.2.0",
+    "react-modular-audio-player": "^1.2.0",
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.1"
   }
