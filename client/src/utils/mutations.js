@@ -52,9 +52,19 @@ export const SAVE_PODCAST = gql`
        latest_pub_date_ms
        earliest_pub_date_ms
        explicit_content
- 
-       extra
-       genre_ids
+       extra {
+        properties {
+          url1
+          url2
+          url3
+          google_url
+          spotify_url
+          youtube_url
+        }
+       genre_ids {
+        items
+        example
+       }
        episodes
        genre {
          name
