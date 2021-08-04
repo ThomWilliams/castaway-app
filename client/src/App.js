@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Newpodcasts from "./pages/Newpodcasts";
+import Podcast from "./pages/Poscast";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -25,6 +26,7 @@ export default class App extends React.Component {
               <Route exact path="/mypodcasts" component={MyPodcasts} />
               <Route exact path="/categories" component={Categories} />
               <Route exact path="/categories" component={Newpodcasts} />
+              <Route exact path="/podcast" component={Podcast} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
           </div>
