@@ -11,12 +11,12 @@ export default function Home() {
           <Link to="/Categories"><h2>See all</h2></Link>
         </div>
         <div className="boxes">
-          <div className="box">Sports</div>
+          {/* <div className="box">Sports</div>
           <div className="box">Comedy</div>
           <div className="box">Culture</div>
           <div className="box">News</div>
           <div className="box">Music</div>
-          <div className="box">Games</div>
+          <div className="box">Games</div> */}
         </div>
       </section>
 
