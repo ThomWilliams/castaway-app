@@ -68,7 +68,6 @@ const typeDefs = gql`
     user: User
     podcast(podcastId: ID!): Podcast
     podcasts: [Podcast]!
-    me: User
     genre(genreId: ID!): Genre
     genres: [Genre]!
   }

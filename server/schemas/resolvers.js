@@ -43,7 +43,7 @@ const resolvers = {
     },
 
     // RETRIEVE DATA FOR LOGGED-IN USER
-    me: async (parent, args, context) => {
+    user: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOne({ _id: context.user._id });
       }
