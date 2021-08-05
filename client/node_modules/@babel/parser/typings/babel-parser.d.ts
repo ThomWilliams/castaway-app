@@ -141,7 +141,7 @@ export type ParserPlugin =
   | "partialApplication"
   | "pipelineOperator"
   | "placeholders"
-  | "privateIn"
+  | "privateIn" // Enabled by default
   | "throwExpressions"
   | "topLevelAwait"
   | "typescript"
@@ -160,7 +160,8 @@ export interface DecoratorsPluginOptions {
 }
 
 export interface PipelineOperatorPluginOptions {
-  proposal: "fsharp" | "minimal" | "smart";
+  proposal: "minimal" | "fsharp" | "hack" | "smart";
+  topicToken?: "%" | "#";
 }
 
 export interface RecordAndTuplePluginOptions {
