@@ -1,16 +1,23 @@
-import React from 'react';
+import React from "react";
 
-const SearchBar = ({keyword,setKeyword}) => {
-  const BarStyling = {background:"white", border:"none"};
+const SearchBar = ({ keyword, setKeyword }) => {
   return (
-    <input className="form"
-     style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"Search by word"}
-     onChange={(e) => setKeyword(e.target.value)}
-    />
+    <div>
+      <form className="form" onSubmit={(e) => setKeyword(e.target.value)}>
+        <div className="form-element">
+          <input
+            placeholder="Search by word"
+            name="keyword"
+            type="keyword"
+            id="keyword"
+          />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   );
-}
+};
 
-export default SearchBar
+export default SearchBar;

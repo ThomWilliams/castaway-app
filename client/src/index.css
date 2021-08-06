@@ -193,13 +193,25 @@ section {
   padding: 5px;
 }
 
+form div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  align-content: stretch;
+}
+
 .label {
   font-size: 14px;
+  padding-right: 10px;
+  width: 110px !important;
 }
 
 .selector {
   margin-top: 5px;
   margin-bottom: 20px;
+  display: block;
 }
 
 /* Player */
@@ -228,15 +240,20 @@ section {
   padding-top: 10px;
 }
 
+/* Form */
+
 .form {
   min-width: 70%;
   margin: 0 20px 0 20px;
 }
 
 .form input {
-  margin-bottom: 10px;
-  margin: 0;
+  margin-bottom: 15px;
   padding: 10px;
+}
+
+.form-element {
+  padding-bottom: 20px !important;
 }
 
 .form .btn-primary {

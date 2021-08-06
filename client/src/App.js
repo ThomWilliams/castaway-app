@@ -13,7 +13,6 @@ import Podcast from "./pages/Poscast";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),
