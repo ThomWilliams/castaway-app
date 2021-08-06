@@ -1,6 +1,20 @@
 import React from "react";
 import AudioPlayer from "react-modular-audio-player";
 
+const { Client } = require('podcast-api');
+
+// If api_key is null, the sdk will connect to a mock server that'll
+// return fake data for testing purpose
+const client = Client({
+  apiKey: process.env.REACT_APP_APIKEY || null,
+});
+
+client.fetchEpisodeById({ id: '4d3fe717742d4963a85562e9f84d8c79', show_transcript: 1 }).then((response) => {
+  console.log(response.data);
+}).catch((error) => {
+  console.log(error);
+});
+
 let iconStyle = { width: "fit-content" },
   rearrangedPlayer = [
     {
