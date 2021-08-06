@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CategoryList from "../components/CategoryList";
 
 export default function Home() {
   return (
@@ -11,12 +12,7 @@ export default function Home() {
           <Link to="/Categories"><h2>See all</h2></Link>
         </div>
         <div className="boxes">
-          {/* <div className="box">Sports</div>
-          <div className="box">Comedy</div>
-          <div className="box">Culture</div>
-          <div className="box">News</div>
-          <div className="box">Music</div>
-          <div className="box">Games</div> */}
+        <CategoryList displayAll = {false} />
         </div>
       </section>
 

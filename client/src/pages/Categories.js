@@ -1,8 +1,7 @@
 import React from "react";
 import CategoryList from "../components/CategoryList";
 
-export default function Categories() {
-  const list = ["Music", "Dance"];
+export default function Categories() { 
   return (
     <div>
       <section>
@@ -10,7 +9,7 @@ export default function Categories() {
           <h1>Categories</h1>
         </div>
         <div className="boxes-section">
-          <CategoryList items = {list} />
+          <CategoryList displayAll = {true} />
         </div>
       </section>
     </div>
