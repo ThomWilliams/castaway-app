@@ -29,7 +29,6 @@ export default class App extends React.Component {
         <Router>
           <div>
             <Header />
-            <Nav />
               <Route exact path="/" component={Home} />
               <Route exact path="/search" component={Search} />
               <Route exact path="/settings" component={Settings} />
@@ -40,7 +39,8 @@ export default class App extends React.Component {
               <Route exact path="/podcastepisodes" component={PodcastEpisodes} />
               <Route exact path="/podcast/:id" component={Podcast} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/signup" component={Signup} />            
+            <Nav />
           </div>
         </Router>
       </div>
