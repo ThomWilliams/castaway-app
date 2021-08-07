@@ -9,7 +9,7 @@ export default function Search() {
         <div className="title">
           <h1>Search</h1>
         </div>
-        <div className="form">
+        <div>
           <SearchBar />
         </div>
       </section>

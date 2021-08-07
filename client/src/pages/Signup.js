@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Handling submissiong")
+    console.log("Handling submissiong");
     const mutationResponse = await addUser({
       variables: {
         username: formState.username,
@@ -20,7 +20,7 @@ function Signup(props) {
         dob: formState.dob,
       },
     });
-    console.log("Successful")
+    console.log("Successful");
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
@@ -34,13 +34,20 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
+    <div>
+      <div className="title">
+        <h1>Sign Up</h1>
+        <Link to="/login">
+          <h2>← Go to Login</h2>
+        </Link>
+      </div>
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">Username:</label>
+      <form className="form" onSubmit={handleFormSubmit}>
+        <div className="element">
+          {" "}
+          <label className="label" htmlFor="firstName">
+            Username:
+          </label>
           <input
             placeholder="Username"
             name="username"
@@ -49,8 +56,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Gender:</label>
+        <div className="element">
+          {" "}
+          <label className="label" htmlFor="lastName">
+            Gender:
+          </label>
           <input
             placeholder="Gender"
             name="gender"
@@ -59,8 +69,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Date of Birth:</label>
+        <div className="element">
+          {" "}
+          <label className="label" htmlFor="lastName">
+            Date of Birth:
+          </label>
           <input
             placeholder="dob"
             name="dob"
@@ -69,8 +82,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
+        <div className="element">
+          {" "}
+          <label className="label" htmlFor="email">
+            Email:
+          </label>
           <input
             placeholder="youremail@test.com"
             name="email"
@@ -79,8 +95,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="element">
+          {" "}
+          <label className="label" htmlFor="pwd">
+            Password:
+          </label>
           <input
             placeholder="******"
             name="password"
