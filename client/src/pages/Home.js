@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CategoryList from "../components/CategoryList";
+import NewPodcasts from "../components/NewPodcasts";
+
 
 export default function Home() {
   return (
@@ -36,15 +38,10 @@ export default function Home() {
       <section>
         <div className="title">
           <h1>New Podcasts</h1>
-          <Link to="/Newpodcasts"><h2>See all</h2></Link>
+          <Link to="/Newpodcasts"><h2>See more</h2></Link>
         </div>
         <div className="boxes">
-          <div className="box">Title 1</div>
-          <div className="box">Title 2</div>
-          <div className="box">Title 3</div>
-          <div className="box">Title 4</div>
-          <div className="box">Title 5</div>
-          <div className="box">Title 6</div>
+        <NewPodcasts displayAll = {false} />
         </div>
       </section>
 

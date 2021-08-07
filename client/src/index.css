@@ -168,6 +168,10 @@ section {
   display: block;
 }
 
+.boxes a:hover {
+  color: var(--body) !important;
+}
+
 .box {
   min-width: 8rem;
   height: 8rem;
@@ -193,18 +197,17 @@ section {
 
 .box-section {
   margin-bottom: 20px;
-  /* display: flex; */
-  /* align-items: flex-end; */
-  /* align-content: stretch; */
-  /* padding: 5px; */
   width: 8rem;
   height: 8rem;
   background-color: coral;
   margin-right: 10px;
   display: flex;
   align-items: flex-end;
-  /* align-content: stretch; */
   padding: 5px;
+}
+
+.boxes-section a:hover {
+  color: var(--body) !important;
 }
 
 form div {
@@ -322,9 +325,9 @@ form div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  align-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: space-around;
 }
 
 .episode-cover {
