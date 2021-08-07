@@ -21,8 +21,8 @@ function CategoryList({ displayAll }) {
           if (err) return `Something went wrong: ${err.message}`
           if (data)
             return displayAll ? (
-              data.genres.map(item => (<a href={"/category/" + [item.id]}><div className="box-section">{item.name}</div></a>))                                       
-            ) : data.genres.slice(0, 10).map(item => (<a href={"/category/" + [item.id]}><div className="box">{item.name}</div></a>))  
+              data.genres.map(item => (<a href={"/category/" + [item.id]}><div className={`head ${"box-section"} ${"category" + [item.id]}`}>{item.name}</div></a>))                                       
+            ) : data.genres.slice(0, 10).map(item => (<a href={"/category/" + [item.id]}><div className={`head ${"box"} ${"category" + [item.id]}`}>{item.name}</div></a>))  
         }}         
       </Async>                            
   );
