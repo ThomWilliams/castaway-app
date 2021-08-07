@@ -6,17 +6,10 @@ const { typeDefs, resolvers } = require('./schemas');
 const session = require("express-session");
 
 
-const app = express();
-
-const cors = require('cors');
-app.use(cors({
-  origin: '*',
-  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
-}));
-
 // Import `authMiddleware()` function to be configured with the Apollo Server
 const { authMiddleware } = require('./utils/auth');
 
+const app = express();
 const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,

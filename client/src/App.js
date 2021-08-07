@@ -9,9 +9,10 @@ import Settings from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Newpodcasts from "./pages/Newpodcasts";
-import Podcast from "./pages/Poscast";
+import Podcast from "./pages/Podcast";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+
 
 const client = new ApolloClient({
   uri: '/graphql',
