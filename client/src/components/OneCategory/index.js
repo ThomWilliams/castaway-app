@@ -1,5 +1,6 @@
 import React from "react";
 import Async from 'react-async';
+import { Link } from 'react-router-dom';
 
 // We'll request genres from this 
 const ID = window.location.pathname.split("/").pop();
@@ -24,6 +25,9 @@ function OneCategory({ displayAll }) {
           return (
 <div>       <div className="title">
           <h1>Category</h1>
+          <Link to="/categories">
+          <h2>← All Categories</h2>
+        </Link>
         </div>
               <img className="cover" src={data.image} alt={data.title_original} />
 
