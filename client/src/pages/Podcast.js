@@ -1,4 +1,5 @@
 import React from "react";
+import PodcastItem from "../components/PodcastItem";
 import AudioPlayer from "react-modular-audio-player";
 
 let iconStyle = { width: "fit-content" },
@@ -51,6 +52,7 @@ export default function Podcast() {
   return (
     <div>
       <section>
+      <PodcastItem displayAll = {true} />
         <div className="title">
           <h1>Podcast</h1>
         </div>
