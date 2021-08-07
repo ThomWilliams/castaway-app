@@ -1,4 +1,4 @@
-import { iterateObserversSafely } from "@apollo/client/utilities";
+// import { iterateObserversSafely } from "@apollo/client/utilities";
 import React from "react";
 import Async from 'react-async';
 
@@ -22,10 +22,11 @@ function EpisodesList({ displayAll }) {
           if (isLoading) return "Loading..."
           if (err) return `Something went wrong: ${err.message}`
           if (data)
-            return displayAll ? (          
-              data.episodes.map(item => (<a href="/podcast/"><div className="box-section" style={{ 
+            return displayAll ? (       
+              data.episodes.map(item => 
+                (<a href={"/podcast/" + [item.id]}><div className="box-section"><div className="episode-cover" style={{ 
                 backgroundImage: `url(${item.image})` 
-              }}>{item.title}</div></a>))                                       
+              }}></div>{item.title}</div></a>))                                       
             ) : data.episodes.slice(0, 10).map(item => (<div className="box">{item.title}</div>))
         }}         
       </Async>                            
