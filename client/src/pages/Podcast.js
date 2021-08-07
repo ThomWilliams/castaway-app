@@ -52,10 +52,10 @@ export default function Podcast() {
   return (
     <div>
       <section>
-      <PodcastItem displayAll = {true} />
         <div className="title">
           <h1>Podcast</h1>
         </div>
+        <PodcastItem displayAll = {true} />
         <img className="cover" src={podcastImage} alt={podcastTitle} />
         <AudioPlayer
           audioFiles={audioFiles}
