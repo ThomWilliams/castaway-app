@@ -3,7 +3,7 @@
   --body: black;
   --primary: white;
   --dark: black;
-  --secondary: #FF7F00;
+  --secondary: #ff7f00;
   --light: #b7c4e9;
 }
 
@@ -57,10 +57,10 @@ header {
   background-color: var(--dark);
 }
 
-.logo { 
+.logo {
   width: auto;
   height: auto;
-  text-align:center;
+  text-align: center;
 }
 
 .icon {
@@ -72,8 +72,12 @@ header {
 }
 
 footer {
-  background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
   margin: 0 auto;
   width: 100%;
   text-align: center;
@@ -144,11 +148,11 @@ section {
 .title {
   border-bottom: solid 1px;
   display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
   align-items: flex-end;
   margin: 0px 20px 10px 20px;
 }
@@ -157,6 +161,10 @@ section {
   display: -webkit-box;
   overflow: scroll;
   margin-left: 20px;
+}
+
+.boxes a {
+  display: block;
 }
 
 .box {
@@ -173,12 +181,12 @@ section {
 /* See all Section */
 
 .boxes-section {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: stretch;
-	align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
   margin: 0 20px 0 20px;
 }
 
@@ -193,7 +201,7 @@ section {
   padding: 5px;
 }
 
-form div{
+form div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -212,6 +220,37 @@ form div{
   margin-top: 5px;
   margin-bottom: 20px;
   display: block;
+}
+
+/* Episodes List */
+
+.episodes-boxes {
+  margin: 0 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  align-content: flex-start;
+}
+
+.episode-cover {
+  width: 12rem;
+  height: 12rem;  
+  background: round;
+  background-color: none;
+  margin-bottom: 10px;
+}
+
+.episodes-boxes .box-section {
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 5px;
+  width: 12rem;
+  height: 12rem;
+  display: block;
+  background: none;
+  margin-bottom: 5rem;
 }
 
 /* Player */
@@ -257,7 +296,7 @@ input {
   padding: 10px;
 }
 
-.form-element {
+.form-element  {
   padding-bottom: 20px !important;
 }
 
