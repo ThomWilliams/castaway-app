@@ -14,7 +14,6 @@ const loadPodcast = () =>
   })
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());
-    .console.log(response.body);
 
 function PodcastItem({ displayAll }) {
   return (
@@ -23,9 +22,12 @@ function PodcastItem({ displayAll }) {
         if (isLoading) return "Loading...";
         if (err) return `Something went wrong: ${err.message}`;
         if (data)
-        return displayAll ? (
-          data.map(item => (<div className="box-section">{item.name}</div>))                                       
-        ) : data.genres.slice(0, 10).map(item => (<div className="box">{item.name}</div>))  
+        return displayAll (
+          <div className="card-body bg-light p-2">
+          <p>hello</p>
+        </div>
+          
+        )  
     }}         
     </Async>
   );
