@@ -39,13 +39,12 @@ let iconStyle = { width: "fit-content" },
     },
   ];
 
-const audioFiles = [
-  { src: "https://www.listennotes.com/e/p/ea09b575d07341599d8d5b71f205517b/" },
-];
-
 // We'll request genres from this API
-const id = "6b6d65930c5a4f71b254465871fed370";
-const URL = "https://listen-api.listennotes.com/api/v2/episodes/" + id;
+// console.log(window.location.pathname.split("/").pop());
+
+const ID = window.location.pathname.split("/").pop();
+
+const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID;
 const loadPodcast = () =>
   fetch(URL, {
     method: "GET",
@@ -66,7 +65,6 @@ function PodcastItem() {
         if (data)
           return (
             <div>
-              {/* <PodcastItem displayAll={true} /> */}
               <img className="cover" src={data.image} alt={data.title} />
               <AudioPlayer
                 audioFiles={data.audio}

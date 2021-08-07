@@ -163,6 +163,10 @@ section {
   margin-left: 20px;
 }
 
+.boxes a {
+  display: block;
+}
+
 .box {
   min-width: 8rem;
   height: 8rem;
@@ -230,6 +234,14 @@ form div {
   align-content: flex-start;
 }
 
+.episode-cover {
+  width: 12rem;
+  height: 12rem;  
+  background: round;
+  background-color: none;
+  margin-bottom: 10px;
+}
+
 .episodes-boxes .box-section {
   font-size: 0.8rem;
   margin-bottom: 1.2rem;
@@ -237,6 +249,8 @@ form div {
   width: 12rem;
   height: 12rem;
   display: block;
+  background: none;
+  margin-bottom: 5rem;
 }
 
 /* Player */
