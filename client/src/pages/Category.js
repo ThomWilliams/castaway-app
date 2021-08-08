@@ -5,9 +5,7 @@ export default function Categories() {
   return (
     <div>
       <section>
-        <div className="boxes-section">
-          <Category displayAll = {true} />
-        </div>
+      <Category displayAll = {true} />
       </section>
     </div>
   );

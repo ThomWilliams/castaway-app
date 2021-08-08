@@ -1,8 +1,8 @@
 import React from "react";
-import NewPodcasts from "../components/NewPodcasts";
+import NewPodcastsList from "../components/NewPodcastsList";
 import { Link } from 'react-router-dom';
 
-export default function Categories() { 
+export default function Newpodcasts() { 
   return (
     <div>
       <section>
@@ -13,7 +13,7 @@ export default function Categories() {
         </Link>
         </div>
         <div className="boxes-section">
-          <NewPodcasts displayAll = {true} />
+          <NewPodcastsList displayAll = {true} />
         </div>
       </section>
     </div>

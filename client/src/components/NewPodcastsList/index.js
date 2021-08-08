@@ -6,14 +6,15 @@ const URL = 'https://listen-api.listennotes.com/api/just_listen';
 const loadPodcasts = () =>
   fetch(URL, {
     method: "GET",
+    timeout: 30000,
     headers: {
-               "Content-type": "application/json;charset=UTF-8",
-               "X-ListenAPI-Key": "ffd40c4878f547648e7bf10c4351a68f"
-             },
+      "Content-type": "application/json;charset=UTF-8",
+      "X-ListenAPI-Key": "ffd40c4878f547648e7bf10c4351a68f"
+    },
   }).then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
 
-function Newpodcasts({ displayAll }) {
+function NewPodcastsList({ displayAll }) {
   return (
       <Async promiseFn={loadPodcasts}>
        {({ data, err, isLoading }) => {
@@ -21,12 +22,12 @@ function Newpodcasts({ displayAll }) {
           if (err) return `Something went wrong: ${err.message}`
           if (data)
             return displayAll ? (
-              data.map(item => (<a href={"/newpodcasts/" + [item.id]}><div style={{ 
+              data.map(item => (<a href={"/podcastepisodes/" + [item.id]}><div style={{ 
                 backgroundImage: `url(${item.image})`}} className="box-section">{item.title}</div></a>))                                       
-            ) : data.slice(0, 10).map(item => (<a href={"/newpodcasts/" + [item.id]}><div className="box">{item.title}</div></a>))  
+            ) : data.slice(0, 10).map(item => (<a href={"/podcastepisodes/" + [item.id]}><div className="box">{item.title}</div></a>))  
         }}         
       </Async>                            
   );
 }
 
-export default Newpodcasts;
+export default NewPodcastsList;

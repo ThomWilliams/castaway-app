@@ -10,7 +10,7 @@ import Settings from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Category from "./pages/Category";
-import Newpodcasts from "./pages/Newpodcasts";
+import NewPodcasts from "./pages/NewPodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
 import Login from "./pages/Login";
@@ -56,8 +56,8 @@ export default class App extends React.Component {
               <Route exact path="/mypodcasts" component={MyPodcasts} />
               <Route exact path="/categories" component={Categories} />
               <Route exact path="/category/:id" component={Category} />
-              <Route exact path="/newpodcasts" component={Newpodcasts} />
-              <Route exact path="/podcastepisodes" component={PodcastEpisodes} />
+              <Route exact path="/newpodcasts" component={NewPodcasts} />
+              <Route exact path="/podcastepisodes/:id" component={PodcastEpisodes} />
               <Route exact path="/podcast/:id" component={Podcast} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />            
