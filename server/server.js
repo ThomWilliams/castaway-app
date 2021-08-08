@@ -21,8 +21,8 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const sess = {
   secret: "Super secret secret",
@@ -40,18 +40,16 @@ if (process.env.NODE_ENV === 'production') {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-app.post('/api/payment', (req, res) => {
-  // Set your secret key. Remember to switch to your live secret key in production.
-  // See your keys here: https://dashboard.stripe.com/apikeys
+app.post('/api/payment', async (req, res) => {
   
-  const amount = req.body.amount;
-
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: amount,
+  const amt = req.body.amount;
+  const payLoad = {
+    amount: amt,
     currency: 'gbp',
-    metadata: {integration_check: 'accept_a_payment'},
-  });
-  console.log(paymentIntent);
+    metadata: {integration_check: 'accept_a_payment'}
+  };
+
+  const paymentIntent = await stripe.paymentIntents.create(payLoad);
   res.json({client_secret: paymentIntent.client_secret});
 });
 db.once('open', () => {

@@ -18,11 +18,34 @@ class CheckoutForm extends React.Component {
       return;
     }
 
-    const result = await stripe.confirmCardPayment('{CLIENT_SECRET}', {
+    const paymentAmount = event.target.elements.amount.value;// from elements property
+    const customerName = event.target.customerName.value;
+    if (!paymentAmount || NaN(paymentAmount)) {
+      alert ('Enter a valid payment amount');
+      return;
+    }
+
+    if (!customerName) {
+      alert ('Customer name should not be empty');
+      return;
+    }
+    
+    const response = await fetch('/api/payment', {
+      method: 'POST',
+      body: JSON.stringify({amount: paymentAmount*100}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const json = await response.json();
+    console.log(json);
+    const clientSecret = json.client_secret;
+
+    const result = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: 'Jenny Rosen',
+          name: customerName,
         },
       }
     });
@@ -30,6 +53,7 @@ class CheckoutForm extends React.Component {
     if (result.error) {
       // Show error to your customer (e.g., insufficient funds)
       console.log(result.error.message);
+      alert('There was an error processing donation');
     } else {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
@@ -38,6 +62,8 @@ class CheckoutForm extends React.Component {
         // execution. Set up a webhook or plugin to listen for the
         // payment_intent.succeeded event that handles any business critical
         // post-payment actions.
+        console.log('Payment succeeded');
+        alert('Donation processing completed successfully');
       }
     }
   };
