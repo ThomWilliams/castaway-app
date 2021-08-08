@@ -4,6 +4,7 @@ const { ApolloServer } = require('apollo-server-express');
 const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
 const session = require("express-session");
+const stripe = require('stripe')('sk_test_51JMB6bDPHWsAO5mxWgPsUmcN7ik48SpfDUiZP052v572a4QYvCbdZenrtOx16GKxu3HrMxzcX0acTNS9qLDttD3r00dOQMNJRY');
 
 
 // Import `authMiddleware()` function to be configured with the Apollo Server
@@ -27,10 +28,7 @@ const sess = {
   secret: "Super secret secret",
   cookie: {},
   resave: false,
-  saveUninitialized: true,
-  // store: new SequelizeStore({
-  // //   db: sequelize,
-  // }),
+  saveUninitialized: true
 };
 app.use(session(sess));
 
@@ -41,6 +39,20 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+app.post('/api/payment', (req, res) => {
+  // Set your secret key. Remember to switch to your live secret key in production.
+  // See your keys here: https://dashboard.stripe.com/apikeys
+  
+  const amount = req.body.amount;
+
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: amount,
+    currency: 'gbp',
+    metadata: {integration_check: 'accept_a_payment'},
+  });
+  console.log(paymentIntent);
+  res.json({client_secret: paymentIntent.client_secret});
 });
 db.once('open', () => {
   app.listen(PORT, () => {
