@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 // import Podcast.js schema
 const Podcast = require('./Podcast');
