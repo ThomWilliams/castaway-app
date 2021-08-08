@@ -20,7 +20,7 @@ class CheckoutForm extends React.Component {
 
     const paymentAmount = event.target.elements.amount.value;// from elements property
     const customerName = event.target.customerName.value;
-    if (!paymentAmount || NaN(paymentAmount)) {
+    if (!paymentAmount || isNaN(paymentAmount)) {
       alert ('Enter a valid payment amount');
       return;
     }
@@ -29,7 +29,7 @@ class CheckoutForm extends React.Component {
       alert ('Customer name should not be empty');
       return;
     }
-    
+
     const response = await fetch('/api/payment', {
       method: 'POST',
       body: JSON.stringify({amount: paymentAmount*100}),
@@ -57,13 +57,9 @@ class CheckoutForm extends React.Component {
     } else {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
-        // Show a success message to your customer
-        // There's a risk of the customer closing the window before callback
-        // execution. Set up a webhook or plugin to listen for the
-        // payment_intent.succeeded event that handles any business critical
-        // post-payment actions.
         console.log('Payment succeeded');
         alert('Donation processing completed successfully');
+        window.location.replace('/')
       }
     }
   };
