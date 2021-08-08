@@ -30,7 +30,7 @@ function CardSection() {
         <label>Amount you want to donate</label>
         <input type="text" name="amount"></input>
         <label>Name on card</label>
-        <input type="text" name="name"></input>
+        <input type="text" name="customerName"></input>
         <label>Your card details</label>
         <CardElement options={CARD_ELEMENT_OPTIONS} />
     </div> 
