@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CategoryList from "../components/CategoryList";
-import NewPodcasts from "../components/NewPodcasts";
+import NewPodcastsList from "../components/NewPodcastsList";
 
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
           <Link to="/Newpodcasts"><h2>See more</h2></Link>
         </div>
         <div className="boxes">
-        <NewPodcasts displayAll = {false} />
+        <NewPodcastsList displayAll = {false} />
         </div>
       </section>
 
