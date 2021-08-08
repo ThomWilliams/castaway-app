@@ -29,6 +29,7 @@
     "podcast-api": "^1.0.8",
     "react-modular-audio-player": "^1.2.0",
     "react-router-dom": "^5.2.0",
-    "react-select": "^4.3.1"
+    "react-select": "^4.3.1",
+    "unirest": "^0.6.0"
   }
 }

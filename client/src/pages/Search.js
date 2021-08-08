@@ -29,7 +29,7 @@ export default function Search() {
           <h1>Search Results</h1>
         </div>
         <div className="box-section">
-          <SearchByWordResults displayAll = {true} />
+          {/* <SearchByWordResults displayAll = {true} /> */}
         </div>
       </section>
     </div>
