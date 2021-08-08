@@ -58,7 +58,7 @@ class CheckoutForm extends React.Component {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
         console.log('Payment succeeded');
-        alert('Donation processing completed successfully');
+        alert('Donation processing completed successfully. Thank you!');
         window.location.replace('/')
       }
     }
