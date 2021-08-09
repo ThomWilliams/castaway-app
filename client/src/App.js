@@ -10,7 +10,7 @@ import Settings from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Category from "./pages/Category";
-import NewPodcasts from "./pages/NewPodcasts";
+import NewPodcasts from "./pages/Newpodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
 import Login from "./pages/Login";
