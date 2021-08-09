@@ -13,6 +13,7 @@
     "graceful-fs": "4.2.2",
     "graphql": "^14.6.0",
     "jwt-decode": "^2.2.0",
+    "podcast-api": "^1.0.8",
     "react": "^16.13.1",
     "react-async": "^10.0.1",
     "react-dom": "^16.13.1",
