@@ -161,6 +161,15 @@ section {
   display: -webkit-box;
   overflow: scroll;
   margin-left: 20px;
+  display: flex;
+}
+
+.boxes a {
+  display: block;
+}
+
+.boxes a:hover {
+  color: var(--body) !important;
 }
 
 .box {
@@ -187,14 +196,18 @@ section {
 }
 
 .box-section {
-  min-width: 8rem;
+  margin-bottom: 20px;
+  width: 8rem;
   height: 8rem;
   background-color: coral;
-  margin-bottom: 10px;
+  margin-right: 10px;
   display: flex;
   align-items: flex-end;
-  align-content: stretch;
   padding: 5px;
+}
+
+.boxes-section a:hover {
+  color: var(--body) !important;
 }
 
 form div {
@@ -218,6 +231,93 @@ form div {
   display: block;
 }
 
+/* Categories */
+
+/* Colour for each category id */
+.category144 {
+  background-color: #64c9cf !important;
+}
+
+.category151 {
+  background-color: #c3ba85 !important;
+}
+
+.category100 {
+  background-color: #bd1616 !important;
+}
+
+.category69 {
+  background-color: #986d8e !important;
+}
+
+.category107 {
+  background-color: #0f52ba !important;
+}
+
+.category122 {
+  background-color: #ffb740 !important;
+}
+
+.category77 {
+  background-color: #512d6d !important;
+}
+
+.category68 {
+  background-color: #ff6767 !important;
+}
+
+.category127 {
+  background-color: #54436b !important;
+}
+
+.category135 {
+  background-color: #515e63 !important;
+}
+
+.category93 {
+  background-color: #f08fc0 !important;
+}
+
+.category133 {
+  background-color: #5d8233 !important;
+}
+
+.category111 {
+  background-color: #ff7600 !important;
+}
+
+.category168 {
+  background-color: #402218 !important;
+}
+
+.category117 {
+  background-color: #053742 !important;
+}
+
+.category88 {
+  background-color: #185adb !important;
+}
+
+.category125 {
+  background-color: #5f939a !important;
+}
+
+.category132 {
+  background-color: #a3a847 !important;
+}
+
+.category82 {
+  background-color: #005792 !important;
+}
+
+.category134 {
+  background-color: #962d2d !important;
+}
+
+.category199 {
+  background-color: #eba83a !important;
+}
+
 /* Episodes List */
 
 .episodes-boxes {
@@ -225,9 +325,17 @@ form div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  align-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: space-around;
+}
+
+.episode-cover {
+  width: 12rem;
+  height: 12rem;
+  background: round;
+  background-color: none;
+  margin-bottom: 10px;
 }
 
 .episodes-boxes .box-section {
@@ -237,6 +345,8 @@ form div {
   width: 12rem;
   height: 12rem;
   display: block;
+  background: none;
+  margin-bottom: 5rem;
 }
 
 /* Player */

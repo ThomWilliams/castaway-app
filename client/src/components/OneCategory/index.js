@@ -1,12 +1,12 @@
-// import { iterateObserversSafely } from "@apollo/client/utilities";
 import React from "react";
 import Async from "react-async";
 import { Link } from "react-router-dom";
 
-// We'll request podcasts episodes from this API
+// We'll request genres from this
 const ID = window.location.pathname.split("/").pop();
-const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID;
-const loadPodcast = () =>
+const URL =
+  "https://listen-api.listennotes.com/api/v2/best_podcasts?genre_id=" + ID;
+const loadCategory = () =>
   fetch(URL, {
     method: "GET",
     headers: {
@@ -17,13 +17,9 @@ const loadPodcast = () =>
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());
 
-console.log(loadPodcast.res)
-console.log(URL)
-
-function PodcastInfo () {
+function OneCategory({ displayAll }) {
   return (
-    <div>
-    <Async promiseFn={loadPodcast}>
+    <Async promiseFn={loadCategory}>
       {({ data, err, isLoading }) => {
         if (isLoading) return "Loading...";
         if (err) return `Something went wrong: ${err.message}`;
@@ -31,14 +27,14 @@ function PodcastInfo () {
           return (
             <div>
               <div className="title">
-                <h1>{data.title}</h1>
+                <h1>{data.name}</h1>
                 <Link to="/categories">
                   <h2>← All Categories</h2>
                 </Link>
               </div>
               <div className="episodes-boxes">
-                {data.episodes.map((item) => (
-                  <a href={"/podcast/" + [item.id]}>
+                {data.podcasts.map((item) => (
+                  <a href={"/podcastepisodes/" + [item.id]}>
                     <div className="box-section">
                       <div
                         className="episode-cover"
@@ -55,8 +51,7 @@ function PodcastInfo () {
           );
       }}
     </Async>
-  </div>
   );
 }
 
-export default PodcastInfo;
+export default OneCategory;
