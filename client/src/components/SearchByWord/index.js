@@ -3,7 +3,7 @@ import { Client } from "podcast-api";
 
 const SearchBar = () => {
   // create state for holding returned google api data
-  const [setSearchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
 
@@ -92,7 +92,7 @@ const SearchBar = () => {
       <div>
         <h2>
           {searchResults.length
-            ? `Viewing ${searchedPodcasts.length} results:`
+            ? `Viewing ${searchResults.length} results:`
             : "Search for a podcast"}
         </h2>
 
