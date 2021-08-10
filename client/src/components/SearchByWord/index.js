@@ -62,58 +62,63 @@ const SearchBar = () => {
     }
   };
 
+
   return (
     <>
-      <section className="text-light bg-dark">
-        <div>
-          <h1>Podcast Search Results</h1>
+      <section>
+        <div className="search-container" >
           <form onSubmit={handleFormSubmit}>
-            <div>
+        
               <div>
-                <input
+                <input 
+                className="search-input"
                   name="searchInput"
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="text"
-                  size="lg"
+                  // size="lg"
                   placeholder="Search for a podcast"
                 />
               </div>
-              <div>
-                <button type="submit" variant="success" size="lg">
+      
+            <div>
+            <button  className="search-button" type="submit" variant="success" size="lg">
                   Submit Search
                 </button>
               </div>
-            </div>
+               
           </form>
+       
         </div>
       </section>
 
       <div>
+        <h1>Displaying Podcast Search Results: {searchInput}</h1>
+
         <h2>
           {searchResults.length
             ? `Viewing ${searchResults.length} results:`
-            : "Search for a podcast"}
+            : ""}
         </h2>
 
         <div className="episodes-boxes">
           {searchResults.map((podcast) => {
+            console.log("check", podcast);
             return (
               <div>
-              <p>Searched podcast</p>
-              <a href={"/podcast/" + [podcast.id]}>
-                    <div className="box-section">
-                      <div
-                        className="episode-cover"
-                        style={{
-                          backgroundImage: `url(${podcast.image})`,
-                        }}
-                      ></div>
-                      {podcast.title}
-                    </div>
-                  </a>
+                <a href={"/podcast/" + [podcast.podcastId]}>
+                  <div className="box-section">
+                    <div
+                      className="episode-cover"
+                      style={{
+                        backgroundImage: `url(${podcast.podcastImage})`,
+                      }}
+                    ></div>
+                    <p>{podcast.podcastTitle}</p>
+                    <p>{podcast.podcastPublisher}</p>
+                  </div>
+                </a>
               </div>
-  
             );
           })}
         </div>
@@ -123,5 +128,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-
