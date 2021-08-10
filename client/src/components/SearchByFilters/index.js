@@ -1,5 +1,7 @@
 import React from "react";
 import Select from "react-select";
+import CategoryList from "../CategoryList";
+import { Client } from "podcast-api";
 
 const customStyles = {
   option: (provided, state) => ({

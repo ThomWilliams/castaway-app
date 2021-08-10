@@ -383,10 +383,44 @@ form div {
   padding: 0 20px 0 20px;
 }
 
+.podcast-info-details {
+  padding-bottom: 20px;
+}
+
+.podcast-info-text {
+  font-size: 0.9rem;
+}
+
+.podcast-info li {
+  list-style-type: none;
+  padding-bottom: 12px;
+}
+
 .podcast-info-description {
   font-size: 0.85rem;
   line-height: 1.4rem;
   padding-top: 10px;
+}
+
+.podcast-info-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.like {
+  width: 30px;
+}
+
+.heart  {
+  background-color: Transparent !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  outline: none !important;
 }
 
 /* Form */

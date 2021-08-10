@@ -16,7 +16,6 @@ const loadBestPodcasts = () =>
 function BestPodcastsList({ displayAll }) {
   return (
       
-      <div>
           
       <Async promiseFn={loadBestPodcasts}>
           
@@ -25,14 +24,17 @@ function BestPodcastsList({ displayAll }) {
           if (err) return `Something went wrong: ${err.message}`
           if (data)
             return displayAll ? (
-                
-              data.podcasts.map(item => (<a href={"/podcastepisodes/" + [item.id]}><div style={{ 
-                backgroundImage: `url(${item.image})`}} className="box-section"></div>{item.title}</a>))                                       
+              data.podcasts.map(item => (<a href={"/podcastepisodes/" + [item.id]}><div className="box-section">
+              <div
+                className="episode-cover"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                }}
+              ></div>{item.title}</div></a>))                                       
             ) : data.podcasts.slice(0, 10).map(item => (<a href={"/podcastepisodes/" + [item.id]}><div style={{ 
                 backgroundImage: `url(${item.image})`}} className="box-section"></div>{item.title}</a>))  
         }}         
       </Async>
-      </div>                            
   );
 }
 
