@@ -1,0 +1,11 @@
+.paymentForm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.paymentForm button {
+    width: 100%;
+    border-radius: 5px;
+    height: 41px;
+}

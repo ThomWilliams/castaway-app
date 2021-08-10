@@ -61,8 +61,7 @@ function PodcastItem() {
         if (isLoading) return "Loading...";
         if (err) return `Something went wrong: ${err.message}`;
         if (data) {
-          const audioFiles = [{ src: "https://www.listennotes.com/e/p/ea09b575d07341599d8d5b71f205517b/" }]
-
+          const audioFiles = [{ src: data.audio }]
           return (
             <div>
               <img className="cover" src={data.image} alt={data.title} />

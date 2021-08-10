@@ -70,7 +70,7 @@ const SearchBar = () => {
           <form onSubmit={handleFormSubmit}>
         
               <div>
-                <input 
+                <input
                 className="search-input"
                   name="searchInput"
                   value={searchInput}
