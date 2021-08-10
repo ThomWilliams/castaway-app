@@ -62,40 +62,63 @@ const SearchBar = () => {
     }
   };
 
+
   return (
     <>
+      <section>
+        <div className="search-container" >
+          <form onSubmit={handleFormSubmit}>
+        
+              <div>
+                <input
+                className="search-input"
+                  name="searchInput"
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  type="text"
+                  // size="lg"
+                  placeholder="Search for a podcast"
+                />
+              </div>
+      
+            <div>
+            <button  className="search-button" type="submit" variant="success" size="lg">
+                  Submit Search
+                </button>
+              </div>
+               
+          </form>
+       
+        </div>
+      </section>
+
       <div>
+        <h1>Displaying Podcast Search Results: {searchInput}</h1>
+
         <h2>
           {searchResults.length
             ? `Viewing ${searchResults.length} results:`
-            : "Search for a podcast"}
+            : ""}
         </h2>
 
-        <div>
+        <div className="episodes-boxes">
           {searchResults.map((podcast) => {
-            {
-              /* TODO : add the correct podcast card html here */
-            }
+            console.log("check", podcast);
             return (
-              <p>Searched podcast</p>
-              // <div key={podcastResults.id}>
-              //   {podcastResults.image ? (
-              //     <image
-              //       src={podcastResults.image}
-              //       alt={`The cover for ${podcastResults.podcast.title_original}`}
-              //       variant="top"
-              //     />
-              //   ) : null}
-              //   <div>
-
-              //     <title>{podcastResults.podcast.title_original}</title>
-              //     <p>Publisher: {podcastResults.podcast.publisher_original}</p>
-              //     <p>Description: {podcastResults.description}</p>
-              //     <p>Podcast Link: {podcastResults.link}</p>
-              //     <p>Podcast Audio: {podcastResults.audio}</p>
-              //     <p>Listen Here: {podcastResults.listennotes_url}</p>
-              //   </div>
-              // </div>
+              <div>
+                <a href={"/podcast/" + [podcast.podcastId]}>
+                  <div className="box-section">
+                    <div
+                      className="episode-cover"
+                      style={{
+                        backgroundImage: `url(${podcast.podcastImage})`,
+                      }}
+                    ></div>
+                    <p>{podcast.podcastTitle}</p>
+                    <p>{podcast.podcastPublisher}</p>
+                  </div>
+                </a>
+              </div>
             );
           })}
         </div>
