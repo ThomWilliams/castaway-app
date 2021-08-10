@@ -20,6 +20,7 @@ const loadPodcast = () =>
 
 function PodcastInfo() {
   const history = useHistory();
+  
   return (
     <div>
       <Async promiseFn={loadPodcast}>
@@ -77,7 +78,7 @@ function PodcastInfo() {
                             backgroundImage: `url(${item.image})`,
                           }}
                         ></div>
-                        {item.title}
+                        {item.title.substr(0,25)}
                       </div>
                     </a>
                   ))}
