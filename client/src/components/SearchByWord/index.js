@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Client } from 'podcast-api';
-
+import { Client } from "podcast-api";
 
 const SearchBar = () => {
   // create state for holding returned google api data
@@ -8,15 +7,18 @@ const SearchBar = () => {
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
 
-  const searchPodcasts = Client({ apiKey: 'ffd40c4878f547648e7bf10c4351a68f' });
-  searchPodcasts.search({
-    q: `${searchInput}`,
-  }).then((response) => {
-    // Get response json data here
-    console.log(response.data);
-  }).catch((error) => {
-    console.log(error)
-  });
+  const searchPodcasts = Client({ apiKey: "ffd40c4878f547648e7bf10c4351a68f" });
+  searchPodcasts
+    .search({
+      q: `${searchInput}`,
+    })
+    .then((response) => {
+      // Get response json data here
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
   // create method to search for Podcasts and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -55,31 +57,6 @@ const SearchBar = () => {
 
   return (
     <>
-      <section className="text-light bg-dark">
-        <div>
-          <h1>Podcast Results</h1>
-          <form onSubmit={handleFormSubmit}>
-            <div>
-              <div>
-                <input
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Search for a podcast"
-                />
-              </div>
-              <div>
-                <button type="submit" variant="success" size="lg">
-                  Submit Search
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-
       <div>
         <h2>
           {searchedPodcasts.length
@@ -105,7 +82,6 @@ const SearchBar = () => {
                   <p>Podcast Link: {podcastResults.link}</p>
                   <p>Podcast Audio: {podcastResults.audio}</p>
                   <p>Listen Here: {podcastResults.listennotes_url}</p>
-                
                 </div>
               </div>
             );
@@ -117,4 +93,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-

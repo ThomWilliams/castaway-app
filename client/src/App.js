@@ -6,10 +6,11 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import Settings from "./pages/Settings";
+import Profile from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Category from "./pages/Category";
+import BestPodcasts from "./pages/BestPodcasts";
 import NewPodcasts from "./pages/NewPodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
@@ -52,10 +53,11 @@ export default class App extends React.Component {
             <Header />
               <Route exact path="/" component={Home} />
               <Route exact path="/search" component={Search} />
-              <Route exact path="/settings" component={Settings} />
+              <Route exact path="/settings" component={Profile} />
               <Route exact path="/mypodcasts" component={MyPodcasts} />
               <Route exact path="/categories" component={Categories} />
               <Route exact path="/category/:id" component={Category} />
+              <Route exact path="/bestpodcasts" component={BestPodcasts} />
               <Route exact path="/newpodcasts" component={NewPodcasts} />
               <Route exact path="/podcastepisodes/:id" component={PodcastEpisodes} />
               <Route exact path="/podcast/:id" component={Podcast} />

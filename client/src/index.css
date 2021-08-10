@@ -204,6 +204,20 @@ section {
   display: flex;
   align-items: flex-end;
   padding: 5px;
+  background-repeat: round;
+}
+
+.boxes-podcasts {
+  display: -webkit-box;
+  overflow: scroll;
+  margin-left: 20px;
+  display: flex;
+  font-size: 0.8rem;
+}
+
+.boxes-podcasts a:hover {
+  color: var(--secondary) !important;
+  text-decoration: none;
 }
 
 .boxes-section a:hover {
