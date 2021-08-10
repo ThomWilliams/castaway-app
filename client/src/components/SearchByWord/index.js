@@ -66,7 +66,7 @@ const SearchBar = () => {
     <>
       <section className="text-light bg-dark">
         <div>
-          <h1>Podcast Results</h1>
+          <h1>Podcast Search Results</h1>
           <form onSubmit={handleFormSubmit}>
             <div>
               <div>
@@ -96,31 +96,24 @@ const SearchBar = () => {
             : "Search for a podcast"}
         </h2>
 
-        <div>
+        <div className="episodes-boxes">
           {searchResults.map((podcast) => {
-            {
-              /* TODO : add the correct podcast card html here */
-            }
             return (
+              <div>
               <p>Searched podcast</p>
-              // <div key={podcastResults.id}>
-              //   {podcastResults.image ? (
-              //     <image
-              //       src={podcastResults.image}
-              //       alt={`The cover for ${podcastResults.podcast.title_original}`}
-              //       variant="top"
-              //     />
-              //   ) : null}
-              //   <div>
-
-              //     <title>{podcastResults.podcast.title_original}</title>
-              //     <p>Publisher: {podcastResults.podcast.publisher_original}</p>
-              //     <p>Description: {podcastResults.description}</p>
-              //     <p>Podcast Link: {podcastResults.link}</p>
-              //     <p>Podcast Audio: {podcastResults.audio}</p>
-              //     <p>Listen Here: {podcastResults.listennotes_url}</p>
-              //   </div>
-              // </div>
+              <a href={"/podcast/" + [podcast.id]}>
+                    <div className="box-section">
+                      <div
+                        className="episode-cover"
+                        style={{
+                          backgroundImage: `url(${podcast.image})`,
+                        }}
+                      ></div>
+                      {podcast.title}
+                    </div>
+                  </a>
+              </div>
+  
             );
           })}
         </div>
@@ -130,3 +123,5 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+
