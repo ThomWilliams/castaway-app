@@ -64,31 +64,6 @@ const SearchBar = () => {
 
   return (
     <>
-      <section className="text-light bg-dark">
-        <div>
-          <h1>Podcast Results</h1>
-          <form onSubmit={handleFormSubmit}>
-            <div>
-              <div>
-                <input
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Search for a podcast"
-                />
-              </div>
-              <div>
-                <button type="submit" variant="success" size="lg">
-                  Submit Search
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-
       <div>
         <h2>
           {searchResults.length
