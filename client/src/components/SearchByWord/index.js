@@ -3,22 +3,13 @@ import { Client } from "podcast-api";
 
 const SearchBar = () => {
   // create state for holding returned google api data
-  const [searchedPodcasts, setSearchedPodcasts] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
 
-  const searchPodcasts = Client({ apiKey: "ffd40c4878f547648e7bf10c4351a68f" });
-  searchPodcasts
-    .search({
-      q: `${searchInput}`,
-    })
-    .then((response) => {
-      // Get response json data here
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // TODO: move this to .env file
+  // Initialise the Listen Podcast Client with correct apiKey
+  const listenClient = Client({ apiKey: "ffd40c4878f547648e7bf10c4351a68f" });
 
   // create method to search for Podcasts and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -29,29 +20,45 @@ const SearchBar = () => {
     }
 
     try {
-      const response = await searchPodcasts(searchInput);
+      // Defines the params for the listen podcast API
+      const searchParams = {
+        q: searchInput,
+        sort_by_date: 1,
+        only_in: "title,description",
+      };
+      // Runs a search on the Listen Podcast Client with the above params
+      const { data, status } = await listenClient.search(searchParams);
 
-      if (!response.ok) {
-        throw new Error("something went wrong!");
+      if (status !== 200) {
+        throw new Error("Something went wrong!");
       }
-
-      const { results } = await response.json();
-
-      const podcastData = results.map((podcastResults) => ({
-        podcastId: podcastResults.id,
-        podcastLink: podcastResults.link,
-        podcastAudio: podcastResults.audio,
-        podcastImage: podcastResults.image,
-        podcastTitle: podcastResults.podcast.title_original,
-        podcastPublisher: podcastResults.podcast.publisher_original,
-        podcastDescription: podcastResults.description,
-        podcastListenNotesUrl: podcastResults.listennotes_url,
-      }));
-
-      setSearchedPodcasts(podcastData);
+      // Transforming the data from the Listen Podcast API into desired data structure
+      const podcastsData = data.results.map(
+        ({
+          id,
+          link,
+          audio,
+          image,
+          podcast,
+          description_highlighted,
+          listennotes_url,
+        }) => ({
+          podcastId: id,
+          podcastLink: link,
+          podcastAudio: audio,
+          podcastImage: image,
+          podcastTitle: podcast.title_original,
+          podcastPublisher: podcast.publisher_original,
+          podcastDescription: description_highlighted,
+          podcastListenNotesUrl: listennotes_url,
+        })
+      );
+      // Set podcast state
+      setSearchResults(podcastsData);
+      // Reset input state
       setSearchInput("");
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
     }
   };
 
@@ -84,31 +91,36 @@ const SearchBar = () => {
 
       <div>
         <h2>
-          {searchedPodcasts.length
-            ? `Viewing ${searchedPodcasts.length} results:`
+          {searchResults.length
+            ? `Viewing ${searchResults.length} results:`
             : "Search for a podcast"}
         </h2>
 
         <div>
-          {searchedPodcasts.map((podcastResults) => {
+          {searchResults.map((podcast) => {
+            {
+              /* TODO : add the correct podcast card html here */
+            }
             return (
-              <div key={podcastResults.id}>
-                {podcastResults.image ? (
-                  <image
-                    src={podcastResults.image}
-                    alt={`The cover for ${podcastResults.podcast.title_original}`}
-                    variant="top"
-                  />
-                ) : null}
-                <div>
-                  <title>{podcastResults.podcast.title_original}</title>
-                  <p>Publisher: {podcastResults.podcast.publisher_original}</p>
-                  <p>Description: {podcastResults.description}</p>
-                  <p>Podcast Link: {podcastResults.link}</p>
-                  <p>Podcast Audio: {podcastResults.audio}</p>
-                  <p>Listen Here: {podcastResults.listennotes_url}</p>
-                </div>
-              </div>
+              <p>Searched podcast</p>
+              // <div key={podcastResults.id}>
+              //   {podcastResults.image ? (
+              //     <image
+              //       src={podcastResults.image}
+              //       alt={`The cover for ${podcastResults.podcast.title_original}`}
+              //       variant="top"
+              //     />
+              //   ) : null}
+              //   <div>
+
+              //     <title>{podcastResults.podcast.title_original}</title>
+              //     <p>Publisher: {podcastResults.podcast.publisher_original}</p>
+              //     <p>Description: {podcastResults.description}</p>
+              //     <p>Podcast Link: {podcastResults.link}</p>
+              //     <p>Podcast Audio: {podcastResults.audio}</p>
+              //     <p>Listen Here: {podcastResults.listennotes_url}</p>
+              //   </div>
+              // </div>
             );
           })}
         </div>
