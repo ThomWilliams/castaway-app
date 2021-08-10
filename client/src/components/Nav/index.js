@@ -5,6 +5,7 @@ import { ReactComponent as HomeIcon } from "../../assets/home.svg";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/user.svg";
 import { ReactComponent as MyPodcastsIcon } from "../../assets/list.svg";
+import { ReactComponent as DonateIcon } from "../../assets/list.svg";
 
 export default class Nav extends React.Component {
   render() {
@@ -42,6 +43,14 @@ export default class Nav extends React.Component {
                   <MyPodcastsIcon className="icon" />
                 </span>
                 <p>My Podcasts</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/donate">
+                <span>
+                  <DonateIcon className="icon" />
+                </span>
+                <p>Donate</p>
               </Link>
             </li>
           </ul>
