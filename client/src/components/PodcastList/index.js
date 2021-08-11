@@ -9,15 +9,17 @@ import { QUERY_PODCASTS, QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 
+
 // We'll request podcasts episodes from this API
 const ID = window.location.pathname.split("/").pop();
+const API_KEY = process.env.REACT_APP_API_KEY;
 const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID;
 const loadPodcast = () =>
   fetch(URL, {
     method: "GET",
     headers: {
       "Content-type": "application/json;charset=UTF-8",
-      "X-ListenAPI-Key": "ffd40c4878f547648e7bf10c4351a68f",
+      "X-ListenAPI-Key": API_KEY,
     },
   })
     .then((res) => (res.ok ? res : Promise.reject(res)))
@@ -25,7 +27,7 @@ const loadPodcast = () =>
 
 function PodcastInfo() {
 
-
+// ADD PODCAST TO MYPODCASTS
   const [addPodcast, { error }] = useMutation(SAVE_PODCAST, {
     update(cache, { data: { addPodcast } }) {
       try {
@@ -48,6 +50,7 @@ function PodcastInfo() {
     },
   });
 
+  // Button Handler to Add Podcast to MyPodcasts
   const handleButtonSubmit = async (event) => {
     event.preventDefault();
 
