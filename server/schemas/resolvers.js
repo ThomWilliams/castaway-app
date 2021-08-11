@@ -55,7 +55,6 @@ const resolvers = {
   Mutation: {
     // ADD USER
     addUser: async (parent, args) => {
-      console.log("args;")
       const user = await User.create(args);
       const token = signToken(user);
      
@@ -95,7 +94,6 @@ const resolvers = {
 
     // ADD PODCAST
     addPodcast: async (parent, { podcasts }, context) => {
-      console.log(context);
       if (context.user) {
         const podcast = new Podcast({ podcasts });
 
@@ -111,7 +109,6 @@ const resolvers = {
 
     // SAVE PODCAST
     savePodcast: async (parent, { user, podcast }, context) => {
-      console.log(user);
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: user._id },

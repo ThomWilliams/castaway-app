@@ -1,8 +1,10 @@
 import { useReducer } from "react";
 import {
   UPDATE_PODCASTS,
+  ADD_TO_MYPODCASTS,
+  REMOVE_FROM_MYPODCASTS,
   UPDATE_GENRES,
-  UPDATE_CURRENT_GENRE
+  UPDATE_CURRENT_GENRE,
 } from "./actions";
 
 export const reducer = (state, action) => {
@@ -11,6 +13,24 @@ export const reducer = (state, action) => {
       return {
         ...state,
         podcasts: [...action.podcasts],
+      };
+
+    case ADD_TO_MYPODCASTS:
+      return {
+        ...state,
+        myPodcastsOpen: true,
+        myPodcasts: [...state.myPodcasts, action.podcast],
+      };
+
+    case REMOVE_FROM_MYPODCASTS:
+      let newState = state.myPodcasts.filter((podcast) => {
+        return podcast._id !== action._id;
+      });
+
+      return {
+        ...state,
+        myPodcastOpen: newState.length > 0,
+        myPodcast: newState,
       };
 
     case UPDATE_GENRES:
@@ -22,14 +42,14 @@ export const reducer = (state, action) => {
     case UPDATE_CURRENT_GENRE:
       return {
         ...state,
-        currentGenre: action.currentGenre
-      }
+        currentGenre: action.currentGenre,
+      };
 
     default:
       return state;
   }
 };
 
-export function useProductReducer(initialState) {
-  return useReducer(reducer, initialState)
+export function usePodcastReducer(initialState) {
+  return useReducer(reducer, initialState);
 }

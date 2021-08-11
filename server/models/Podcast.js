@@ -9,7 +9,7 @@ const podcastSchema = new Schema({
   description: {
     type: String,
   },
-  // saved book id from GoogleBooks
+  //saved book id from GoogleBooks
   image: {
     type: String,
   },
@@ -31,7 +31,6 @@ const podcastSchema = new Schema({
   publisher: {
     type: String,
   },
-
   website: {
     type: String,
   },

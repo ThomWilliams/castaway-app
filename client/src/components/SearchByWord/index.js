@@ -9,7 +9,8 @@ const SearchBar = () => {
 
   // TODO: move this to .env file
   // Initialise the Listen Podcast Client with correct apiKey
-  const listenClient = Client({ apiKey: "ffd40c4878f547648e7bf10c4351a68f" });
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const listenClient = Client({ apiKey: API_KEY });
 
   // create method to search for Podcasts and set state on form submit
   const handleFormSubmit = async (event) => {
@@ -104,7 +105,6 @@ const SearchBar = () => {
         </div>
         <div className="boxes-section">
           {searchResults.map((podcast) => {
-            console.log("check", podcast);
             return (
               <a href={"/podcast/" + [podcast.podcastId]}>
                 <div className="episodes-boxes-all">
