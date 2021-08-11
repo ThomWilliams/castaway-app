@@ -65,47 +65,49 @@ const SearchBar = () => {
   return (
     <>
       <section>
-        <div className="search-container" >
+        <div className="container">
           <form onSubmit={handleFormSubmit}>
-        
-              <div>
-                <input
-                className="search-input"
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  // size="lg"
-                  placeholder="Search for a podcast"
-                />
-              </div>
-      
             <div>
-            <button  className="search-button" type="submit" variant="success" size="lg">
-                  Submit Search
-                </button>
-              </div>
-               
+              <input
+                className="search-input"
+                name="searchInput"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                // size="lg"
+                placeholder="Search for a podcast"
+              />
+            </div>
+
+            <div>
+              <button
+                className="button"
+                type="submit"
+                variant="success"
+                size="lg"
+              >
+                Submit Search
+              </button>
+            </div>
           </form>
-       
         </div>
       </section>
 
-      <div>
-        <h1>Displaying Podcast Search Results: {searchInput}</h1>
-
-        <h2>
-          {searchResults.length
-            ? `Viewing ${searchResults.length} results:`
-            : ""}
-        </h2>
-
-        <div className="episodes-boxes">
+      <section>
+        <div className="title">
+          <h1>Displaying Podcast Search Results: {searchInput}</h1>
+          <h2>
+            {searchResults.length
+              ? `Viewing ${searchResults.length} results:`
+              : ""}
+          </h2>
+        </div>
+        <div className="boxes-section">
           {searchResults.map((podcast) => {
             console.log("check", podcast);
             return (
-              <div>
-                <a href={"/podcast/" + [podcast.podcastId]}>
+              <a href={"/podcast/" + [podcast.podcastId]}>
+                <div className="episodes-boxes-all">
                   <div className="box-section">
                     <div
                       className="episode-cover"
@@ -113,15 +115,17 @@ const SearchBar = () => {
                         backgroundImage: `url(${podcast.podcastImage})`,
                       }}
                     ></div>
-                    <p>{podcast.podcastTitle}</p>
-                    <p>{podcast.podcastPublisher}</p>
+                    {podcast.podcastTitle}
+                    {podcast.podcastPublisher}
                   </div>
-                </a>
-              </div>
+                </div>
+              </a>
             );
           })}
         </div>
-      </div>
+      </section>
+
+      <div></div>
     </>
   );
 };

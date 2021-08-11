@@ -26,6 +26,7 @@ function NewPodcastsList() {
             
             <div>
 
+
               <div className="podcast-info">
 
                   <div className="podcast-info-details">

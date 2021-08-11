@@ -1,5 +1,6 @@
 // import React from "react";
 // import { useQuery } from "@apollo/client";
+// import { ReactComponent as DonateIcon } from "../../assets/donate.svg";
 
 // import { QUERY_USER } from "../utils/queries";
 
@@ -12,8 +13,15 @@
 //   }
 
 //   return (
-//     <h2>{user.name}</h2>
-//   ) 
+//     <div>
+//         {data.user}
+//       <span>
+//         <DonateIcon className="icon" />
+//       </span>
+//       <p>Donate</p>
+//       <h2>{user.name}</h2>
+//     </div>
+//   );
 // };
 
 // export default Profile;

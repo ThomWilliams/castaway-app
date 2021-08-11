@@ -1,17 +1,16 @@
-// import { iterateObserversSafely } from "@apollo/client/utilities";
 import React from "react";
 import Async from "react-async";
 import { useHistory } from "react-router-dom";
-import { useMutation } from '@apollo/client';
 import { ReactComponent as Logo } from "../../assets/like.svg";
-import { SAVE_PODCAST } from '../../utils/mutations';
-import { QUERY_PODCASTS, QUERY_USER } from '../../utils/queries';
-import Auth from '../../utils/auth';
-
-
+        
 // We'll request podcasts episodes from this API
-const ID = window.location.pathname.split("/").pop();
-const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID;
+const ID = window.location.pathname.split("/", 3).pop();
+const PAGE = window.location.pathname.split("/").pop();
+
+console.log(ID)
+console.log(PAGE)
+const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID + "?next_episode_pub_date=" + PAGE + "&sort=oldest_first";
+console.log(URL)
 const loadPodcast = () =>
   fetch(URL, {
     method: "GET",
@@ -23,48 +22,10 @@ const loadPodcast = () =>
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());
 
-function PodcastInfo() {
-
-
-  const [addPodcast, { error }] = useMutation(SAVE_PODCAST, {
-    update(cache, { data: { addPodcast } }) {
-      try {
-        const { podcasts } = cache.readQuery({ query: QUERY_PODCASTS });
-
-        cache.writeQuery({
-          query: QUERY_PODCASTS,
-          data: { podcasts: [addPodcast, ...podcasts] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-
-      // update user object's cache
-      const { user } = cache.readQuery({ query: QUERY_USER });
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: { user: { ...user, podcasts: [...user.podcasts, addPodcast] } },
-      });
-    },
-  });
-
-  const handleButtonSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await addPodcast({
-        variables: {
-          username: Auth.getProfile().data.username,
-        },
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-
+function NextPodcasts() {
   const history = useHistory();
-  
+  console.log(ID)
+console.log(PAGE)
   return (
     <div>
       <Async promiseFn={loadPodcast}>
@@ -84,7 +45,7 @@ function PodcastInfo() {
                     <h2>← Go Back</h2>
                   </div></a>
                 </div>
-                <div  onSubmit={handleButtonSubmit} className="podcast-info">
+                <div className="podcast-info">
                   <div className="podcast-info-details">
                     <div className="podcast-info-cover">
                       <img src={data.image} alt={data.title}></img>
@@ -92,22 +53,17 @@ function PodcastInfo() {
                     <div>
                       <div className="podcast-info-text">
                         <ul>
-                          <li>{data.description.split(' ').slice(0, 35).join(' ').concat('...')}</li>
+                          <li>{data.description.split(' ').slice(0, 30).join(' ').concat('...')}</li>
                           <li>Country: {data.country}</li>
                           <li>Language: {data.language}</li>
                           <li>Publisher: {data.publisher}</li>
-                          <li><a href={data.website} target="_blank" rel="noreferrer noopener">Visit the official website</a></li>
                         </ul>
                       </div>
                       <div className="like">
                         <ul>
-                        {/* <button className="heart">
+                        <button className="heart">
                         <Logo className="icon" />
-                        </button> */}
-                        <button type="submit" className="search-button">
-                          Add To My Podcasts
                         </button>
-                        
                         </ul>
                       </div>
                     </div>
@@ -132,7 +88,7 @@ function PodcastInfo() {
                     </a>
                   ))}
                 </div>
-                {/* <a href={"/nextpodcastepisodes/" + [data.id] + "/" + [data.next_episode_pub_date]}>Next Page</a> */}
+                <a href={"/nextpodcastepisodes/" + [data.id] + "/" + [data.next_episode_pub_date]}>Next Page</a>
               </div>
             );
         }}
@@ -141,4 +97,4 @@ function PodcastInfo() {
   );
 }
 
-export default PodcastInfo;
+export default NextPodcasts;
