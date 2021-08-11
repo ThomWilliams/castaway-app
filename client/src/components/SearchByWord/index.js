@@ -62,7 +62,6 @@ const SearchBar = () => {
     }
   };
 
-
   return (
     <>
       <section>
