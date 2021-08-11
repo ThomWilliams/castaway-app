@@ -5,7 +5,7 @@ import { ReactComponent as HomeIcon } from "../../assets/home.svg";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 import { ReactComponent as SettingsIcon } from "../../assets/user.svg";
 import { ReactComponent as MyPodcastsIcon } from "../../assets/list.svg";
-import { ReactComponent as DonateIcon } from "../../assets/list.svg";
+import { ReactComponent as DonateIcon } from "../../assets/donate.svg";
 
 export default class Nav extends React.Component {
   render() {
@@ -13,14 +13,14 @@ export default class Nav extends React.Component {
       <footer>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <Link to="/">
                 <span>
                   <HomeIcon className="icon" />
                 </span>
                 <p>Home</p>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/search">
                 <span>
@@ -29,14 +29,14 @@ export default class Nav extends React.Component {
                 <p>Search</p>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/settings">
                 <span>
                   <SettingsIcon className="icon" />
                 </span>
-                <p>Settings</p>
+                <p>Account</p>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/mypodcasts">
                 <span>

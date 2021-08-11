@@ -1,12 +1,16 @@
-// import { iterateObserversSafely } from "@apollo/client/utilities";
 import React from "react";
 import Async from "react-async";
 import { useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/like.svg";
         
 // We'll request podcasts episodes from this API
-const ID = window.location.pathname.split("/").pop();
-const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID;
+const ID = window.location.pathname.split("/", 3).pop();
+const PAGE = window.location.pathname.split("/").pop();
+
+console.log(ID)
+console.log(PAGE)
+const URL = "https://listen-api.listennotes.com/api/v2/podcasts/" + ID + "?next_episode_pub_date=" + PAGE + "&sort=oldest_first";
+console.log(URL)
 const loadPodcast = () =>
   fetch(URL, {
     method: "GET",
@@ -18,9 +22,10 @@ const loadPodcast = () =>
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());
 
-function PodcastInfo() {
+function NextPodcasts() {
   const history = useHistory();
-  
+  console.log(ID)
+console.log(PAGE)
   return (
     <div>
       <Async promiseFn={loadPodcast}>
@@ -48,11 +53,10 @@ function PodcastInfo() {
                     <div>
                       <div className="podcast-info-text">
                         <ul>
-                          <li>{data.description.split(' ').slice(0, 35).join(' ').concat('...')}</li>
+                          <li>{data.description.split(' ').slice(0, 30).join(' ').concat('...')}</li>
                           <li>Country: {data.country}</li>
                           <li>Language: {data.language}</li>
                           <li>Publisher: {data.publisher}</li>
-                          <li><a href={data.website} target="_blank" rel="noreferrer noopener">Visit the official website</a></li>
                         </ul>
                       </div>
                       <div className="like">
@@ -84,7 +88,7 @@ function PodcastInfo() {
                     </a>
                   ))}
                 </div>
-                {/* <a href={"/nextpodcastepisodes/" + [data.id] + "/" + [data.next_episode_pub_date]}>Next Page</a> */}
+                <a href={"/nextpodcastepisodes/" + [data.id] + "/" + [data.next_episode_pub_date]}>Next Page</a>
               </div>
             );
         }}
@@ -93,4 +97,4 @@ function PodcastInfo() {
   );
 }
 
-export default PodcastInfo;
+export default NextPodcasts;
