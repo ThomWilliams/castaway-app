@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
-import Profile from "./pages/Settings";
+// import Profile from "./pages/Settings";
 import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Category from "./pages/Category";
@@ -14,9 +14,10 @@ import BestPodcasts from "./pages/BestPodcasts";
 import NewPodcasts from "./pages/NewPodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
+import NextPodcasts from "./components/NextPodcasts";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Donate from "./components/DonateForm";
+import Donate from "./pages/Donate";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
@@ -52,10 +53,11 @@ export default class App extends React.Component {
             <Elements stripe={stripePromise}>
               <Route exact path="/" component={Home} />
               <Route exact path="/search" component={Search} />
-              <Route exact path="/settings" component={Profile} />
+              {/* <Route exact path="/settings" component={Profile} /> */}
               <Route exact path="/mypodcasts" component={MyPodcasts} />
               <Route exact path="/categories" component={Categories} />
               <Route exact path="/podcastepisodes" component={PodcastEpisodes} />
+              <Route exact path="/nextpodcastepisodes/:id/:page" component={NextPodcasts} />
               <Route exact path="/podcast" component={Podcast} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/login" component={Login} />

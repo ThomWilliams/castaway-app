@@ -15,22 +15,25 @@ const loadBestPodcasts = () =>
 
 function BestPodcastsList({ displayAll }) {
   return (
-      
-          
       <Async promiseFn={loadBestPodcasts}>
-          
        {({ data, err, isLoading }) => {
           if (isLoading) return "Loading..."
           if (err) return `Something went wrong: ${err.message}`
           if (data)
+            // if (data.podcasts.title.split(' ').length > 10) data.podcasts.title = data.podcasts.title.split(' ').slice(0, 5).join(' ').concat('...')
             return displayAll ? (
-              data.podcasts.map(item => (<a href={"/podcastepisodes/" + [item.id]}><div className="box-section">
+              data.podcasts.map(item => (<a href={"/podcastepisodes/" + [item.id]}><div className="episodes-boxes-all">
+                <div className="box-section">
               <div
                 className="episode-cover"
                 style={{
                   backgroundImage: `url(${item.image})`,
                 }}
-              ></div>{item.title}</div></a>))                                       
+              ></div>
+              {item.title}
+              </div>
+              </div>
+              </a>))                                       
             ) : data.podcasts.slice(0, 10).map(item => (<a href={"/podcastepisodes/" + [item.id]}><div style={{ 
                 backgroundImage: `url(${item.image})`}} className="box-section"></div>{item.title}</a>))  
         }}         

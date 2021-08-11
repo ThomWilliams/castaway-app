@@ -9,13 +9,13 @@ export default function Podcast() {
       <section>
         <div className="title">
           <h1>Podcast</h1>
-          <a><div
+          <div
                     onClick={() => {
                       history.goBack();
                     }}
                   >
                     <h2>← Go Back</h2>
-                  </div></a>
+                  </div>
         </div>
         <PodcastItem displayAll = {true} />
       </section>

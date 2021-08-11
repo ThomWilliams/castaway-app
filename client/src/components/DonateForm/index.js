@@ -1,8 +1,8 @@
-import React from 'react';
-import {ElementsConsumer, CardElement} from '@stripe/react-stripe-js';
+import React from "react";
+import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 
-import CardSection from '../CardSection';
-import './DonateForm.css';
+import CardSection from "../CardSection";
+import "./DonateForm.css";
 
 class CheckoutForm extends React.Component {
   handleSubmit = async (event) => {
@@ -10,7 +10,7 @@ class CheckoutForm extends React.Component {
     // which would refresh the page.
     event.preventDefault();
 
-    const {stripe, elements} = this.props;
+    const { stripe, elements } = this.props;
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
@@ -18,24 +18,24 @@ class CheckoutForm extends React.Component {
       return;
     }
 
-    const paymentAmount = event.target.elements.amount.value;// from elements property
+    const paymentAmount = event.target.elements.amount.value; // from elements property
     const customerName = event.target.customerName.value;
     if (!paymentAmount || isNaN(paymentAmount)) {
-      alert ('Enter a valid payment amount');
+      alert("Enter a valid payment amount");
       return;
     }
 
     if (!customerName) {
-      alert ('Customer name should not be empty');
+      alert("Customer name should not be empty");
       return;
     }
 
-    const response = await fetch('/api/payment', {
-      method: 'POST',
-      body: JSON.stringify({amount: paymentAmount*100}),
+    const response = await fetch("/api/payment", {
+      method: "POST",
+      body: JSON.stringify({ amount: paymentAmount * 100 }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
     const json = await response.json();
     console.log(json);
@@ -47,19 +47,19 @@ class CheckoutForm extends React.Component {
         billing_details: {
           name: customerName,
         },
-      }
+      },
     });
 
     if (result.error) {
       // Show error to your customer (e.g., insufficient funds)
       console.log(result.error.message);
-      alert('There was an error processing donation');
+      alert("There was an error processing donation");
     } else {
       // The payment has been processed!
-      if (result.paymentIntent.status === 'succeeded') {
-        console.log('Payment succeeded');
-        alert('Donation processing completed successfully. Thank you!');
-        window.location.replace('/')
+      if (result.paymentIntent.status === "succeeded") {
+        console.log("Payment succeeded");
+        alert("Donation processing completed successfully. Thank you!");
+        window.location.replace("/");
       }
     }
   };
@@ -68,7 +68,15 @@ class CheckoutForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="paymentForm">
         <CardSection />
-        <button disabled={!this.props.stripe}>Confirm order</button>
+        <button
+          className="button"
+          type="submit"
+          variant="success"
+          size="lg"
+          disabled={!this.props.stripe}
+        >
+          Confirm donation
+        </button>
       </form>
     );
   }
@@ -77,8 +85,8 @@ class CheckoutForm extends React.Component {
 export default function DonateForm() {
   return (
     <ElementsConsumer>
-      {({stripe, elements}) => (
-        <CheckoutForm  stripe={stripe} elements={elements} />
+      {({ stripe, elements }) => (
+        <CheckoutForm stripe={stripe} elements={elements} />
       )}
     </ElementsConsumer>
   );

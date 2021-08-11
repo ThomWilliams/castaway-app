@@ -2,7 +2,6 @@
 :root {
   --body: black;
   --primary: white;
-  --dark: black;
   --secondary: #ff7f00;
   --light: #b7c4e9;
 }
@@ -54,7 +53,13 @@ a:hover {
 
 header {
   padding: 20px 6% 5px 6%;
-  background-color: var(--dark);
+  background-color: var(--body);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 5px;
 }
 
 .logo {
@@ -207,6 +212,28 @@ section {
   background-repeat: round;
 }
 
+.episodes-boxes-all {
+    /* margin: 0 20px 0 20px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: space-around;
+}
+
+.box-section-all {
+  margin-bottom: 20px;
+  width: 8rem;
+  height: 8rem;
+  background-color: coral;
+  /* margin-right: 10px; */
+  display: flex;
+  align-items: flex-end;
+  padding: 5px;
+  background-repeat: round;
+}
+
 .boxes-podcasts {
   display: -webkit-box;
   overflow: scroll;
@@ -220,9 +247,9 @@ section {
   text-decoration: none;
 }
 
-.boxes-section a:hover {
+/* .boxes-section a:hover {
   color: var(--body) !important;
-}
+} */
 
 form div {
   display: flex;
@@ -350,6 +377,18 @@ form div {
   background: round;
   background-color: none;
   margin-bottom: 10px;
+}
+
+.episodes-boxes-all .box-section {
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+  padding: 0;
+  margin: 0;
+  width: 12rem;
+  height: 12rem;
+  display: block;
+  background: none;
+  margin-bottom: 5rem;
 }
 
 .episodes-boxes .box-section {
@@ -485,41 +524,35 @@ input {
   }
 }
 
-
-.search-container {
-  margin: 0 auto;
-  width: 85%;
-  padding: 10px;
-  border-radius: 5px;
-    height: 25vh;
-  background-color: #eba83a;
-  box-shadow: 5px 10px 10px black;
-  margin-bottom: 5px;
-}
-
 .search-input {
   font-family: "Spartan", sans-serif;
-  margin: 0 auto;
-  width: 95%;
+  width: 100%;
   padding: 10px;
-  border-radius: 5px;
-  font-size: 17px;
-  height: 10vh;
+  font-size: 1rem;
   background-color: #ffffff;
-	display: block; 
-
+  display: block;
+  border: none;
 }
 
-.search-button {
-padding: 5px;
-  margin: 0 auto;
-  margin-top: 2px;
-  padding-bottom: 2px;
-  display: block; 
-  font-family: "Spartan", sans-serif;
-  border-radius: 5px;
-  background-color: #ffffff;
-  height: 9vh;
-  background-color: #050505;
- color: #ffffff;
+button {
+  border: solid 2px var(--secondary);
+  background-color: var(--body);
+  color: var(--primary);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--secondary);
+  color: var(--body);
+}
+
+.paymentForm button {
+  margin-top: 20px;
+  width: 100%;
 }
