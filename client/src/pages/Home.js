@@ -50,12 +50,9 @@ export default function Home() {
       {/* New Podcasts */}
       <section>
         <div className="title">
-          <h1>New Podcasts</h1>
-          <Link to="/Newpodcasts"><h2>See more</h2></Link>
+          <h1>Just listen: Discover a new published epidose</h1>
         </div>
-        <div className="boxes">
-        <NewPodcastsList displayAll = {false} />
-        </div>
+        <NewPodcastsList />
       </section>
 
     </div>
