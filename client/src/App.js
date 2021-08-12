@@ -2,6 +2,7 @@ import React from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
+import Authserver from './utils/auth';
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
@@ -40,6 +41,9 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+console.log(Authserver.loggedIn())
+const LandingPageComponent = Authserver.loggedIn() ? Home : Login;
+console.log(LandingPageComponent)
 export default class App extends React.Component {
   render() {
     return (
@@ -50,7 +54,7 @@ export default class App extends React.Component {
             <Header />
             <Nav />
             <Elements stripe={stripePromise}>
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={LandingPageComponent} />
               <Route exact path="/search" component={Search} />
               {/* <Route exact path="/settings" component={Profile} /> */}
               <Route exact path="/mypodcasts" component={MyPodcasts} />

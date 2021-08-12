@@ -219,7 +219,9 @@ text-transform: uppercase !important;
 line-height: 26px;
 }
 
-
+.podcast-info-text ul {
+  padding: 0;
+}
 
 .boxes-section-categories a {
   color: var(--primary);
@@ -532,6 +534,7 @@ form div {
 
 .podcast-info {
   padding: 0 20px 0 20px;
+  font-size: 0.9rem;
 }
 
 .podcast-info-details {
