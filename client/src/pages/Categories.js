@@ -12,7 +12,7 @@ export default function Categories() {
           <h2>← Home</h2>
         </Link>
         </div>
-        <div className="boxes-section">
+        <div className="boxes-section-categories">
           <CategoryList displayAll = {true} />
         </div>
       </section>

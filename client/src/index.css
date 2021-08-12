@@ -168,10 +168,6 @@ section {
   overflow: scroll;
   margin-left: 20px;
   display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase !important;
-  line-height: 22px;
 }
 
 .boxes a {
@@ -191,6 +187,10 @@ section {
   align-items: flex-end;
   align-content: stretch;
   padding: 5px;
+  font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase !important;
+    line-height: 22px;
 }
 
 /* See all Section */
@@ -203,20 +203,31 @@ section {
   align-items: stretch;
   align-content: flex-start;
   margin: 0 20px 0 20px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-transform: uppercase !important;
-  line-height: 26px;
 }
 
-.boxes-section a {
+.boxes-section-categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: flex-start;
+  margin: 0 20px 0 20px;
+  font-size: 1.3rem;
+font-weight: 700;
+text-transform: uppercase !important;
+line-height: 26px;
+}
+
+
+
+.boxes-section-categories a {
   color: var(--primary);
 }
 
-.boxes-section a:hover {
-  color: var(--primary) !important;
+.boxes-section-categories a:hover {
+  color: var(--body) !important;
   text-decoration: none;
-  text-shadow: 3px 3px black;
 }
 
 .box-section {
@@ -529,11 +540,25 @@ form div {
 
 .podcast-info-text {
   font-size: 0.9rem;
+  padding-left: 25px !important;
+}
+
+.description a {
+  text-decoration: underline;
+}
+
+.podcast-info-description {
+  font-size: 0.9rem;
+  padding-bottom: 20px;
 }
 
 .podcast-info li {
   list-style-type: none;
   padding-bottom: 12px;
+}
+
+.podcast-info span {
+  font-weight: 600;
 }
 
 .podcast-info-description {
@@ -551,7 +576,7 @@ form div {
 }
 
 .like {
-  width: 30px;
+  padding-left: 25px !important;
 }
 
 .heart  {
