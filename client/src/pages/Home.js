@@ -50,7 +50,7 @@ export default function Home() {
       {/* New Podcasts */}
       <section>
         <div className="title">
-          <h1>Just listen: Discover a new published epidose</h1>
+          <h1>Discover a new published epidose</h1>
         </div>
         <NewPodcastsList />
       </section>

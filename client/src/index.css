@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  padding: 0 0 120px 0;
+  padding: 0 0 90px 0;
   background-color: var(--body);
   color: var(--primary);
   line-height: 1.5;
@@ -202,8 +202,20 @@ section {
 
 .box-section {
   margin-bottom: 20px;
-  width: 8rem;
-  height: 8rem;
+  width: 12rem;
+  height: 12rem;
+  background-color: coral;
+  margin-right: 10px;
+  display: flex;
+  align-items: flex-end;
+  padding: 5px;
+  background-repeat: round;
+}
+
+.box-section-categories {
+  margin-bottom: 20px;
+  width: 12rem;
+  height: 12rem;
   background-color: coral;
   margin-right: 10px;
   display: flex;
@@ -213,13 +225,13 @@ section {
 }
 
 .episodes-boxes-all {
-    /* margin: 0 20px 0 20px; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: stretch;
-    justify-content: space-around;
+  /* margin: 0 20px 0 20px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: space-around;
 }
 
 .box-section-all {
@@ -488,42 +500,6 @@ input {
   width: 30%;
 }
 
-@media only screen and (max-width: 450px) {
-  header {
-    display: grid;
-  }
-  header h1 {
-    font-size: 12vw;
-  }
-  nav ul {
-    flex-direction: column;
-  }
-  section {
-    flex-direction: column;
-  }
-  .card-img {
-    width: 100%;
-  }
-  .card-title {
-    font-size: 6vw;
-  }
-  .card-body {
-    margin: 0;
-    padding: 10px;
-    border: 0;
-  }
-  .container {
-    margin: 0;
-    padding: 0 20px 0 20px;
-  }
-  .form {
-    width: auto;
-  }
-  .form .btn-primary {
-    width: auto;
-  }
-}
-
 .search-input {
   font-family: "Spartan", sans-serif;
   width: 100%;
@@ -555,4 +531,99 @@ button {
 .paymentForm button {
   margin-top: 20px;
   width: 100%;
+}
+
+@media only screen and (max-width: 460px) {
+  h1 {
+    font-size: 0.9rem;
+  }
+  h2 {
+    font-size: 0.7rem;
+  }
+  .boxes-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  .box-section-categories {
+    margin-right: 0;
+    width: auto;
+  }
+  .episodes-boxes-all {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+  .episode-cover {
+    width: 12rem !important;
+    height: 12rem !important;
+    background: round;
+    background-color: none;
+    margin-bottom: 10px;
+}
+  .podcast-info-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  .podcast-info-cover {
+    align-self: center;
+  }
+  .episode-cover {
+    width: 14rem;
+    height: 14rem;
+    background: round;
+    background-color: none;
+    margin-bottom: 10px;
+  }
+  .podcast-info-text {
+    font-size: 0.75rem;
+}
+  .podcast-info-text ul {
+    margin: 0;
+    padding: 0;
+}
+
+  /* header {
+    display: grid;
+  }
+  header h1 {
+    font-size: 12vw;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  section {
+    flex-direction: column;
+  }
+  .card-img {
+    width: 100%;
+  }
+  .card-title {
+    font-size: 6vw;
+  }
+  .card-body {
+    margin: 0;
+    padding: 10px;
+    border: 0;
+  }
+  .container {
+    margin: 0;
+    padding: 0 20px 0 20px;
+  }
+  .form {
+    width: auto;
+  }
+  .form .btn-primary {
+    width: auto;
+  } */
 }
