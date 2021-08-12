@@ -11,6 +11,7 @@
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+- [Deployment Links](#deployment)
 - [License](#license)
 
 ## Description
@@ -35,7 +36,7 @@ The app has a mobile-first design, built with REACT and enhanced by HTML, Javasc
 
 It features a sleek user interface, with a customised header (featuring the Castwaway logo), and accessible navigation bar, featuring the Search, Donate and My Podcast icons.
 
-User data is stored using a MERN stack set up, with Apollo Server and graphQL. 
+Uses a full MERN stack set up, with Apollo Server and graphQL. 
 
 Email validation upon sign-up prevents duplciation of accounts, whereas checks on login also ensure security of user accoutns. 
 
@@ -55,6 +56,8 @@ However, to install the project please clone the repo from GitHub and use the fo
 * Or please ensure all dependencies and dev dependencies are installed individually (npm install {package}).
 
 - Dependencies: apollo-server-express, brcrypt,concurrently, graphql, podcast-api, react-modular-audio-player, react-router-dom, react-select, jsonwebtoken, mongoose, nodemon, stripe, graceful-fs, react, react-dom, react-scripts,  connect-session sequelize, dotenv, express, express-handlebars, express-session, mysql2, nodemon, sequelize.
+
+* Create `.env` files in the root, server and client directories with `REACT_APP_API_KEY=(yourApiKey)` defined to make requestes to the Listen Notes API.
 
 
 ## Usage
@@ -86,7 +89,7 @@ However, to install the project please clone the repo from GitHub and use the fo
 
 * React router set up is employed to enhance navigation and interactivity, with the app accepting and respond to user requests.
 
-* Authentication via JWT tokens auth-middleware and brcrypt hashing provides security for the user data upon signing up and logging in.
+* Authentication via JWT tokens auth-middleware and bcrypt hashing provides security for the user data upon signing up and logging in.
 
 * Sensitive information such as the API keys are protected in local-only environment files.
 
@@ -131,6 +134,8 @@ thomwilliams1990@gmail.com
 - Project Repository: [GitHub](https://github.com/ThomWilliams/castaway-app)
 
 - Issue tracker: [GitHub Issues](https://github.com/ThomWilliams/castaway-app/issues)
+
+- Presentation: [Project 3: Presentation](https://docs.google.com/presentation/d/1_tSJ2Q1P50FxCxLY9PRPjQWXqdfaoPBU0K4l4Mj88e0/edit?usp=sharing)
 
 ## License
 
