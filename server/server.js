@@ -5,9 +5,6 @@ const db = require('./config/connection');
 const { typeDefs, resolvers } = require('./schemas');
 const session = require("express-session");
 const stripe = require('stripe')('sk_test_51JMB6bDPHWsAO5mxWgPsUmcN7ik48SpfDUiZP052v572a4QYvCbdZenrtOx16GKxu3HrMxzcX0acTNS9qLDttD3r00dOQMNJRY');
-
-
-// Import `authMiddleware()` function to be configured with the Apollo Server
 const { authMiddleware } = require('./utils/auth');
 
 const app = express();
@@ -15,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
- // context: authMiddleware,
+ context: authMiddleware,
 });
 
 

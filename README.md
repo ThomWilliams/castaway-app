@@ -68,8 +68,6 @@ However, to install the project please clone the repo from GitHub and use the fo
 
 ## Technologies
 
-# PROJECT 3 CHECKLIST
-
 * The app uses a REACT front-end design. 
 
 * The back-end support is provided by MongoDB and the Mongoose ODM to allow user input to be stored in a database on login and while selecting podcasts to be saved to their MyPodcast library. 
@@ -88,7 +86,7 @@ However, to install the project please clone the repo from GitHub and use the fo
 
 * React router set up is employed to enhance navigation and interactivity, with the app accepting and respond to user requests.
 
-* Authentication via JWT, bcrypt and middleware provides security for the users upon signing up and logging in.
+* Authentication via JWT tokens auth-middleware and brcrypt hashing provides security for the user data upon signing up and logging in.
 
 * Sensitive information such as the API keys are protected in local-only environment files.
 
@@ -102,7 +100,7 @@ To contribute further on this project please contacts the repo owners at the Git
 
 ## Tests
 
-Further testing with the Jest package proposed for future development.
+Further testing with the Jest package are proposed for future development.
 
 ## Questions
 
@@ -116,13 +114,15 @@ thomwilliams1990@gmail.com
 
 ## Screenshots
 
-![Homepage](src/components/images/homepage.png)
+![Homepage](client/src/assets/home.png)
 
-![Contact](src/components/images/contact.png)
+![Podcast](client/src/assets/single.png)
 
-![Portfolio](src/components/images/projects.png)
+![Search](client/src/assets/search.png)
 
-![CV](src/components/images/CV.png)
+![Donate](client/src/assets/donate.png)
+
+![Mobile](client/src/assets/mobile.png)
 
 ## Deployment / Links
 

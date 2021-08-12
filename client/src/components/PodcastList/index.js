@@ -93,8 +93,10 @@ function PodcastInfo() {
                       <img src={data.image} alt={data.title}></img>
                     </div>
                     <div>
-                      <div className="podcast-info-text">
-                        <ul>
+                      <div className="podcast-info-text" style={{
+                            paddingLeft: `0`,
+                          }}>
+                        <ul className="description" style={{padding: "0px"}}>
                           <li>{data.description.split(' ').slice(0, 35).join(' ').concat('...')}</li>
                           <li>Country: {data.country}</li>
                           <li>Language: {data.language}</li>
