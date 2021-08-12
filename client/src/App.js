@@ -11,7 +11,7 @@ import MyPodcasts from "./pages/Mypodcasts.js";
 import Categories from "./pages/Categories";
 import Category from "./pages/Category";
 import BestPodcasts from "./pages/BestPodcasts";
-import NewPodcasts from "./pages/NewPodcasts";
+import NewPodcasts from "./pages/Newpodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
 import NextPodcasts from "./components/NextPodcasts";
