@@ -3,7 +3,6 @@ import Async from "react-async";
 import AudioPlayer from "react-modular-audio-player";
 import { useHistory } from "react-router-dom";
 
-
 let iconStyle = { width: "fit-content" },
   rearrangedPlayer = [
     {
@@ -58,29 +57,30 @@ const loadPodcast = () =>
 
 function PodcastItem() {
   const history = useHistory();
-
   return (
     <Async promiseFn={loadPodcast}>
       {({ data, err, isLoading }) => {
         if (isLoading) return "Loading...";
         if (err) return `Something went wrong: ${err.message}`;
         if (data) {
+          let descriptionEl = document.createElement("div");
+          descriptionEl.innerHTML = data.description;
+          console.log(descriptionEl);
           const audioFiles = [{ src: data.audio }];
           return (
             <div>
-
-
               <div className="title">
-          <h1>{data.title}</h1>
-          <div
-                    onClick={() => {
-                      history.goBack();
-                    }}
-                  >
-                    <a><h2>← Go Back</h2></a>
-                  </div>
-        </div>
-
+                <h1>{data.podcast.title}</h1>
+                <div
+                  onClick={() => {
+                    history.goBack();
+                  }}
+                >
+                  <a>
+                    <h2>← Go Back</h2>
+                  </a>
+                </div>
+              </div>
 
               <div className="podcast-info">
                 <div className="podcast-info-details">
@@ -96,7 +96,7 @@ function PodcastItem() {
                     >
                       <ul className="description" style={{ padding: "0px" }}>
                         <li>
-                          <span>Episode:</span> {data.podcast.title}
+                          <span>Episode title:</span> {data.title}
                         </li>
                         <li>
                           <a
@@ -124,8 +124,7 @@ function PodcastItem() {
                 />
 
                 <div className="podcast-info">
-                  <h2>{data.description}</h2>
-                  <p className="podcast-info-description">{data.transcript}</p>
+                  <div dangerouslySetInnerHTML={{__html: data.description}} />
                 </div>
               </div>
             </div>
