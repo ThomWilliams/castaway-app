@@ -78,7 +78,7 @@ function PodcastInfo() {
             return (
               <div>
                 <div className="title">
-                  <h1>{data.title}</h1>
+                  <h1>{data.title.split(' ').slice(0, 10).join(' ')}</h1>
                   <a><div
                     onClick={() => {
                       history.goBack();
@@ -87,7 +87,7 @@ function PodcastInfo() {
                     <h2>← Go Back</h2>
                   </div></a>
                 </div>
-                <div  onSubmit={handleButtonSubmit} className="podcast-info">
+                <div onSubmit={handleButtonSubmit} className="podcast-info">
                   <div className="podcast-info-details">
                     <div className="podcast-info-cover">
                       <img src={data.image} alt={data.title}></img>
@@ -97,26 +97,26 @@ function PodcastInfo() {
                             paddingLeft: `0`,
                           }}>
                         <ul className="description" style={{padding: "0px"}}>
-                          <li>{data.description.split(' ').slice(0, 35).join(' ').concat('...')}</li>
-                          <li>Country: {data.country}</li>
-                          <li>Language: {data.language}</li>
-                          <li>Publisher: {data.publisher}</li>
+                          <li><span>Country:</span> {data.country}</li>
+                          <li><span>Language:</span> {data.language}</li>
+                          <li><span>Publisher:</span> {data.publisher}</li>
                           <li><a href={data.website} target="_blank" rel="noreferrer noopener">Visit the official website</a></li>
                         </ul>
                       </div>
                       <div className="like">
-                        <ul>
                         {/* <button className="heart">
                         <Logo className="icon" />
                         </button> */}
-                        <button type="submit" className="search-button">
+                        <button type="submit" className="button">
                           Add To My Podcasts
                         </button>
-                        
-                        </ul>
-                      </div>
+                                              </div>
                     </div>
                   </div>
+                  <div className="podcast-info-description">
+                    <span>Description:</span>
+                  <p>{data.description}</p>
+                </div>
                 </div>
 
                 <div className="title">
