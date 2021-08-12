@@ -54,6 +54,8 @@ a:hover {
 header {
   padding: 20px 6% 5px 6%;
   background-color: var(--body);
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -63,8 +65,7 @@ header {
 }
 
 .logo {
-  width: auto;
-  height: auto;
+  width: 18rem;
   text-align: center;
 }
 
@@ -621,6 +622,14 @@ button {
   width: 100%;
 }
 
+.st0 {
+  fill: none;
+  stroke: none !important;
+  stroke-width: 0.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @media only screen and (max-width: 460px) {
   h1 {
     font-size: 0.9rem;
@@ -681,38 +690,4 @@ button {
     margin: 0;
     padding: 0;
   }
-
-  /* header {
-    display: grid;
-  }
-  header h1 {
-    font-size: 12vw;
-  }
-  nav ul {
-    flex-direction: column;
-  }
-  section {
-    flex-direction: column;
-  }
-  .card-img {
-    width: 100%;
-  }
-  .card-title {
-    font-size: 6vw;
-  }
-  .card-body {
-    margin: 0;
-    padding: 10px;
-    border: 0;
-  }
-  .container {
-    margin: 0;
-    padding: 0 20px 0 20px;
-  }
-  .form {
-    width: auto;
-  }
-  .form .btn-primary {
-    width: auto;
-  } */
 }
