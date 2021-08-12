@@ -41,14 +41,14 @@ let iconStyle = { width: "fit-content" },
 
 // We'll request genres from this API
 const ID = window.location.pathname.split("/").pop();
-
+const API_KEY = process.env.REACT_APP_API_KEY;
 const URL = "https://listen-api.listennotes.com/api/v2/episodes/" + ID;
 const loadPodcast = () =>
   fetch(URL, {
     method: "GET",
     headers: {
       "Content-type": "application/json;charset=UTF-8",
-      "X-ListenAPI-Key": "ffd40c4878f547648e7bf10c4351a68f",
+      "X-ListenAPI-Key": API_KEY,
     },
   })
     .then((res) => (res.ok ? res : Promise.reject(res)))

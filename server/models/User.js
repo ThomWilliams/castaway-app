@@ -30,7 +30,7 @@ const userSchema = new Schema(
         required: true,
     },
     // sets savedPodcasts as an array of data in line with the podcast data
-    // savedPodcasts: [Podcast],
+    savedPodcasts: [Podcast.schema],
   },
   // sets use for virtual below
   {
