@@ -9,12 +9,12 @@ export default function MyPodcasts() {
           <h1>My Podcasts</h1>
         </div>
         <div className="boxes-section">
-        <div>
-      <section>
-      <MyPodcastsDisplay displayAll = {true} />
-      </section>
-    </div>
-        <div className="box-section">Title 1</div>
+          <div>
+            <section>
+              <MyPodcastsDisplay displayAll={true} />
+            </section>
+          </div>
+          <div className="box-section">Title 1</div>
           <div className="box-section">Title 1</div>
           <div className="box-section">Title 1</div>
           <div className="box-section">Title 1</div>

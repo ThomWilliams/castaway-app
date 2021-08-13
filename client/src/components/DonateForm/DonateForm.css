@@ -1,9 +1,9 @@
 .paymentForm {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
 }
 
 .paymentForm button {
-    width: 100%;
+  width: 100%;
 }

@@ -5,8 +5,7 @@ export default function Podcast() {
   return (
     <div>
       <section>
-        
-        <PodcastItem displayAll = {true} />
+        <PodcastItem displayAll={true} />
       </section>
     </div>
   );

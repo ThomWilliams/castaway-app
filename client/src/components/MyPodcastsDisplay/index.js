@@ -1,7 +1,6 @@
 import React from "react";
 import Async from "react-async";
 
-
 // display my podcast selections
 function MyPodcastsDisplay({ displayAll }) {
   return (

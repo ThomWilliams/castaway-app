@@ -1,6 +1,5 @@
 import React from "react";
-import SearchBar from "../components/SearchByWord"
-import SearchFilters from "../components/SearchByFilters"
+import SearchBar from "../components/SearchByWord";
 
 export default function Search() {
   return (
@@ -13,16 +12,6 @@ export default function Search() {
           <SearchBar />
         </div>
       </section>
-
-      {/* <section>
-        <div className="title">
-          <h1>Find a Podcast</h1>
-        </div>
-        <div className="form">
-          <SearchFilters />
-        </div>
-      </section> */}
-
     </div>
   );
 }

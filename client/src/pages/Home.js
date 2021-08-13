@@ -4,7 +4,6 @@ import CategoryList from "../components/CategoryList";
 import BestPodcastsList from "../components/BestPodcastsList";
 import NewPodcastsList from "../components/NewPodcastsList";
 
-
 export default function Home() {
   return (
     <div>
@@ -12,10 +11,12 @@ export default function Home() {
       <section>
         <div className="title">
           <h1>Categories</h1>
-          <Link to="/Categories"><h2>See all</h2></Link>
+          <Link to="/Categories">
+            <h2>See all</h2>
+          </Link>
         </div>
         <div className="boxes">
-        <CategoryList displayAll = {false} />
+          <CategoryList displayAll={false} />
         </div>
       </section>
 
@@ -24,30 +25,16 @@ export default function Home() {
       <section>
         <div className="title">
           <h1>Best Podcasts</h1>
-          <Link to="/bestpodcasts"><h2>See all</h2></Link>
+          <Link to="/bestpodcasts">
+            <h2>See all</h2>
+          </Link>
         </div>
         <div className="boxes-podcasts">
-        <BestPodcastsList displayAll = {false} />
+          <BestPodcastsList displayAll={false} />
         </div>
       </section>
 
-      {/* My Podcasts */}
-      <section>
-        <div className="title">
-          <h1>My Podcasts</h1>
-          <Link to="/Mypodcasts"><h2>See all</h2></Link>
-        </div>
-        <div className="boxes">
-          <div className="box">Title 1</div>
-          <div className="box">Title 2</div>
-          <div className="box">Title 3</div>
-          <div className="box">Title 4</div>
-          <div className="box">Title 5</div>
-          <div className="box">Title 6</div>
-        </div>
-      </section>
-
-      {/* New Podcasts */}
+      {/* Random Podcast */}
       <section>
         <div className="title">
           <h1>Discover a new published epidose</h1>
@@ -55,6 +42,16 @@ export default function Home() {
         <NewPodcastsList />
       </section>
 
+      {/* My Podcasts */}
+      {/* <section>
+        <div className="title">
+          <h1>My Podcasts</h1>
+          <Link to="/Mypodcasts"><h2>See all</h2></Link>
+        </div>
+        <div className="boxes">
+          <div className="box">Title 1</div>
+        </div>
+      </section> */}
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import Category from "../components/OneCategory";
 
-export default function Categories() { 
+export default function Categories() {
   return (
     <div>
       <section>
-      <Category displayAll = {true} />
+        <Category displayAll={true} />
       </section>
     </div>
   );

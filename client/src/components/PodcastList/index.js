@@ -2,13 +2,11 @@
 import React from "react";
 import Async from "react-async";
 import { useHistory } from "react-router-dom";
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 import { ReactComponent as Logo } from "../../assets/like.svg";
-import { SAVE_PODCAST } from '../../utils/mutations';
-import { QUERY_PODCASTS, QUERY_USER } from '../../utils/queries';
-import Auth from '../../utils/auth';
-
-
+import { SAVE_PODCAST } from "../../utils/mutations";
+import { QUERY_PODCASTS, QUERY_USER } from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 // We'll request podcasts episodes from this API
 const ID = window.location.pathname.split("/").pop();
@@ -25,32 +23,11 @@ const loadPodcast = () =>
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());
 
-function PodcastInfo() {
+const PodcastInfo = ({ podcastId }) => {
+  // ADD PODCAST TO MYPODCASTS
 
-// ADD PODCAST TO MYPODCASTS
-  const [addPodcast, { error }] = useMutation(SAVE_PODCAST, {
-    update(cache, { data: { addPodcast } }) {
-      try {
-        const { podcasts } = cache.readQuery({ query: QUERY_PODCASTS });
+  const [addPodcast, { error }] = useMutation(SAVE_PODCAST);
 
-        cache.writeQuery({
-          query: QUERY_PODCASTS,
-          data: { podcasts: [addPodcast, ...podcasts] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-
-      // update user object's cache
-      const { user } = cache.readQuery({ query: QUERY_USER });
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: { user: { ...user, podcasts: [...user.podcasts, addPodcast] } },
-      });
-    },
-  });
-
-  // Button Handler to Add Podcast to MyPodcasts
   const handleButtonSubmit = async (event) => {
     event.preventDefault();
 
@@ -58,6 +35,7 @@ function PodcastInfo() {
       const { data } = await addPodcast({
         variables: {
           username: Auth.getProfile().data.username,
+          podcastId,
         },
       });
     } catch (err) {
@@ -65,9 +43,8 @@ function PodcastInfo() {
     }
   };
 
-
   const history = useHistory();
-  
+
   return (
     <div>
       <Async promiseFn={loadPodcast}>
@@ -78,45 +55,67 @@ function PodcastInfo() {
             return (
               <div>
                 <div className="title">
-                  <h1>{data.title.split(' ').slice(0, 10).join(' ')}</h1>
-                  <a><div
+                  <h1>{data.title.split(" ").slice(0, 10).join(" ")}</h1>
+                  <div
+                    className="a-style"
                     onClick={() => {
                       history.goBack();
                     }}
                   >
                     <h2>← Go Back</h2>
-                  </div></a>
+                  </div>
                 </div>
-                <div onSubmit={handleButtonSubmit} className="podcast-info">
+                <div className="podcast-info">
                   <div className="podcast-info-details">
                     <div className="podcast-info-cover">
                       <img src={data.image} alt={data.title}></img>
                     </div>
                     <div>
-                      <div className="podcast-info-text" style={{
-                            paddingLeft: `0`,
-                          }}>
-                        <ul className="description" style={{padding: "0px"}}>
-                          <li><span>Country:</span> {data.country}</li>
-                          <li><span>Language:</span> {data.language}</li>
-                          <li><span>Publisher:</span> {data.publisher}</li>
-                          <li><a href={data.website} target="_blank" rel="noreferrer noopener">Visit the official website</a></li>
+                      <div
+                        className="podcast-info-text"
+                        style={{
+                          paddingLeft: `0`,
+                        }}
+                      >
+                        <ul className="description" style={{ padding: "0px" }}>
+                          <li>
+                            <span>Country:</span> {data.country}
+                          </li>
+                          <li>
+                            <span>Language:</span> {data.language}
+                          </li>
+                          <li>
+                            <span>Publisher:</span> {data.publisher}
+                          </li>
+                          <li>
+                            <a
+                              href={data.website}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                            >
+                              Visit the official website
+                            </a>
+                          </li>
                         </ul>
                       </div>
-                      <div className="like">
+                      <form
+                        value={data.id}
+                        onSubmit={handleButtonSubmit}
+                        className="like"
+                      >
                         {/* <button className="heart">
                         <Logo className="icon" />
                         </button> */}
                         <button type="submit" className="button">
                           Add To My Podcasts
                         </button>
-                                              </div>
+                      </form>
                     </div>
                   </div>
                   <div className="podcast-info-description">
                     <span>Description:</span>
-                  <p>{data.description}</p>
-                </div>
+                    <p>{data.description}</p>
+                  </div>
                 </div>
 
                 <div className="title">
@@ -144,6 +143,6 @@ function PodcastInfo() {
       </Async>
     </div>
   );
-}
+};
 
 export default PodcastInfo;
