@@ -4,7 +4,6 @@ import CategoryList from "../components/CategoryList";
 import BestPodcastsList from "../components/BestPodcastsList";
 import NewPodcastsList from "../components/NewPodcastsList";
 
-
 export default function Home() {
   return (
     <div>
@@ -12,10 +11,12 @@ export default function Home() {
       <section>
         <div className="title">
           <h1>Categories</h1>
-          <Link to="/Categories"><h2>See all</h2></Link>
+          <Link to="/Categories">
+            <h2>See all</h2>
+          </Link>
         </div>
         <div className="boxes">
-        <CategoryList displayAll = {false} />
+          <CategoryList displayAll={false} />
         </div>
       </section>
 
@@ -24,15 +25,25 @@ export default function Home() {
       <section>
         <div className="title">
           <h1>Best Podcasts</h1>
-          <Link to="/bestpodcasts"><h2>See all</h2></Link>
+          <Link to="/bestpodcasts">
+            <h2>See all</h2>
+          </Link>
         </div>
         <div className="boxes-podcasts">
-        <BestPodcastsList displayAll = {false} />
+          <BestPodcastsList displayAll={false} />
         </div>
       </section>
 
-      {/* My Podcasts */}
+      {/* Random Podcast */}
       <section>
+        <div className="title">
+          <h1>Discover a new published epidose</h1>
+        </div>
+        <NewPodcastsList />
+      </section>
+
+      {/* My Podcasts */}
+      {/* <section>
         <div className="title">
           <h1>My Podcasts</h1>
           <Link to="/Mypodcasts"><h2>See all</h2></Link>
@@ -45,16 +56,7 @@ export default function Home() {
           <div className="box">Title 5</div>
           <div className="box">Title 6</div>
         </div>
-      </section>
-
-      {/* New Podcasts */}
-      <section>
-        <div className="title">
-          <h1>Discover a new published epidose</h1>
-        </div>
-        <NewPodcastsList />
-      </section>
-
+      </section> */}
     </div>
   );
 }

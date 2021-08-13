@@ -37,7 +37,7 @@ const countryOptions = [
 
 const CustomSelectProps = (props) => {
   return (
-    <form>
+    <form className="centerForm">
       <label className="label">Select a Genre:</label>
       <Select
         className="selector"

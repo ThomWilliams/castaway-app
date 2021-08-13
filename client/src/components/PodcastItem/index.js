@@ -71,14 +71,12 @@ function PodcastItem() {
             <div>
               <div className="title">
                 <h1>{data.podcast.title}</h1>
-                <div
+                <div className="a-style"
                   onClick={() => {
                     history.goBack();
                   }}
                 >
-                  <a>
                     <h2>← Go Back</h2>
-                  </a>
                 </div>
               </div>
 

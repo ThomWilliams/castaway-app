@@ -7,7 +7,7 @@ export default function Donate() {
       <div className="title">
         <h1>Donations</h1>
       </div>
-      <div className="container">
+      <div className="container-form">
         <DonateForm />
       </div>
     </section>

@@ -13,14 +13,14 @@ export default class Nav extends React.Component {
       <footer>
         <nav>
           <ul>
-            {/* <li>
+            <li>
               <Link to="/">
                 <span>
                   <HomeIcon className="icon" />
                 </span>
                 <p>Home</p>
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link to="/search">
                 <span>
@@ -37,14 +37,14 @@ export default class Nav extends React.Component {
                 <p>Account</p>
               </Link>
             </li> */}
-            <li>
+            {/* <li>
               <Link to="/mypodcasts">
                 <span>
                   <MyPodcastsIcon className="icon" />
                 </span>
                 <p>My Podcasts</p>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/donate">
                 <span>

@@ -66,7 +66,7 @@ class CheckoutForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="paymentForm">
+      <form onSubmit={this.handleSubmit} className="centerForm">
         <CardSection />
         <button
           className="button"

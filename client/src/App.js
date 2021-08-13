@@ -15,7 +15,6 @@ import BestPodcasts from "./pages/BestPodcasts";
 import NewPodcasts from "./pages/NewPodcasts";
 import Podcast from "./pages/Podcast";
 import PodcastEpisodes from "./pages/PodcastEpisodes";
-import NextPodcasts from "./components/NextPodcasts";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Donate from "./pages/Donate";
@@ -41,9 +40,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-console.log(Authserver.loggedIn())
 const LandingPageComponent = Authserver.loggedIn() ? Home : Login;
-console.log(LandingPageComponent)
 export default class App extends React.Component {
   render() {
     return (
@@ -60,7 +57,6 @@ export default class App extends React.Component {
               <Route exact path="/mypodcasts" component={MyPodcasts} />
               <Route exact path="/categories" component={Categories} />
               <Route exact path="/podcastepisodes" component={PodcastEpisodes} />
-              <Route exact path="/nextpodcastepisodes/:id/:page" component={NextPodcasts} />
               <Route exact path="/podcast" component={Podcast} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/login" component={Login} />

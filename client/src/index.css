@@ -41,6 +41,17 @@ p {
   margin: 0;
 }
 
+.a-style {
+  color: var(--primary) !important;
+  text-decoration: none;
+}
+
+.a-style:hover {
+  color: var(--secondary) !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 a {
   color: var(--primary) !important;
   text-decoration: none;
@@ -62,6 +73,13 @@ header {
   margin: 0 auto;
   padding: 20px;
   margin-bottom: 5px;
+}
+
+.container-form {
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 5px;
+  text-align: -webkit-center;
 }
 
 .logo {
@@ -92,11 +110,13 @@ footer {
 }
 footer ul {
   margin: 0px;
+  padding: 0;
   clear: both;
   text-align: center;
 }
 footer ul li {
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   list-style-type: none;
   display: inline-block;
 }
@@ -104,6 +124,10 @@ footer ul li {
 footer ul li a {
   text-decoration: none;
   font-size: 0.8rem;
+}
+
+footer a:hover {
+  cursor: pointer !important;
 }
 
 header h1 {
@@ -188,9 +212,9 @@ section {
   align-content: stretch;
   padding: 5px;
   font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase !important;
-    line-height: 22px;
+  font-weight: 700;
+  text-transform: uppercase !important;
+  line-height: 22px;
 }
 
 /* See all Section */
@@ -214,9 +238,9 @@ section {
   align-content: flex-start;
   margin: 0 20px 0 20px;
   font-size: 1.3rem;
-font-weight: 700;
-text-transform: uppercase !important;
-line-height: 26px;
+  font-weight: 700;
+  text-transform: uppercase !important;
+  line-height: 26px;
 }
 
 .podcast-info-text ul {
@@ -594,8 +618,17 @@ form div {
 /* Form */
 
 .form {
-  min-width: 70%;
-  margin: 0 20px 0 20px;
+  margin: 30px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 
 .form input {
@@ -645,7 +678,11 @@ button {
   color: var(--body);
 }
 
-.paymentForm button {
+.centerForm {
+  width: 60%;
+}
+
+.centerForm button {
   margin-top: 20px;
   width: 100%;
 }
@@ -717,5 +754,11 @@ button {
   .podcast-info-text ul  {
     margin: 0;
     padding: 0;
+  }
+  .centerForm {
+    width: 100% !important;
+  }
+  .boxes-section-categories {
+    flex-flow: column;
   }
 }
