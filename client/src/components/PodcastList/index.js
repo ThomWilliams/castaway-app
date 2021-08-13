@@ -24,25 +24,24 @@ const loadPodcast = () =>
     .then((res) => res.json());
 
 const PodcastInfo = ({ podcastId }) => {
-
   // ADD PODCAST TO MYPODCASTS
 
   const [addPodcast, { error }] = useMutation(SAVE_PODCAST);
-  
-  const handleButtonSubmit = async (event) => {
-      event.preventDefault();
 
-      try {
-        const { data } = await addPodcast ({
-          variables: { 
-            username: Auth.getProfile().data.username,
-            podcastId,
+  const handleButtonSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await addPodcast({
+        variables: {
+          username: Auth.getProfile().data.username,
+          podcastId,
         },
       });
-      } catch (err) {
-        console.error(err);
-      }
-    };
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const history = useHistory();
 
@@ -57,13 +56,14 @@ const PodcastInfo = ({ podcastId }) => {
               <div>
                 <div className="title">
                   <h1>{data.title.split(" ").slice(0, 10).join(" ")}</h1>
-                    <div className="a-style"
-                      onClick={() => {
-                        history.goBack();
-                      }}
-                    >
-                      <h2>← Go Back</h2>
-                    </div>
+                  <div
+                    className="a-style"
+                    onClick={() => {
+                      history.goBack();
+                    }}
+                  >
+                    <h2>← Go Back</h2>
+                  </div>
                 </div>
                 <div className="podcast-info">
                   <div className="podcast-info-details">
@@ -98,7 +98,11 @@ const PodcastInfo = ({ podcastId }) => {
                           </li>
                         </ul>
                       </div>
-                      <form value={data.id} onSubmit={handleButtonSubmit} className="like">
+                      <form
+                        value={data.id}
+                        onSubmit={handleButtonSubmit}
+                        className="like"
+                      >
                         {/* <button className="heart">
                         <Logo className="icon" />
                         </button> */}
@@ -139,6 +143,6 @@ const PodcastInfo = ({ podcastId }) => {
       </Async>
     </div>
   );
-}
+};
 
 export default PodcastInfo;

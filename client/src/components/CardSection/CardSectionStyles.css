@@ -7,38 +7,38 @@
 */
 
 .StripeElement {
-    height: 40px;
-    padding: 10px 12px;
-    color: #32325d;
-    background-color: white;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    width: 100%;
-    box-shadow: 0 1px 3px 0 #e6ebf1;
-    -webkit-transition: box-shadow 150ms ease;
-    transition: box-shadow 150ms ease;
-  }
-  
-  .StripeElement--focus {
-    box-shadow: 0 1px 3px 0 #cfd7df;
-  }
-  
-  .StripeElement--invalid {
-    border-color: #fa755a;
-  }
-  
-  .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
-  }
+  height: 40px;
+  padding: 10px 12px;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
 
-  .__PrivateStripeElement {
-      width: 100% !important;
-  }
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
 
-  .donationSection {
-    display: flex;
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.__PrivateStripeElement {
+  width: 100% !important;
+}
+
+.donationSection {
+  display: flex;
 }
 
 .donationSection input {
-    width: 100%;
+  width: 100%;
 }

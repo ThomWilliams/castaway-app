@@ -26,7 +26,7 @@ const typeDefs = gql`
     latest_pub_date_ms: Int
     earliest_pub_date_ms: Int
     explicit_content: Boolean
-#    Check three below
+    #    Check three below
     extra: [String]!
     genre_ids: [ID!]
     episodes: [Int!]
@@ -43,7 +43,7 @@ const typeDefs = gql`
     user: User
   }
 
-  input PodcastInput { 
+  input PodcastInput {
     _id: ID!
     description: String
     image: String
@@ -58,7 +58,7 @@ const typeDefs = gql`
     latest_pub_date_ms: Int
     earliest_pub_date_ms: Int
     explicit_content: Boolean
-#    Check three below
+    #    Check three below
     extra: [String]!
     genre_ids: [ID!]
     episodes: [String!]
@@ -73,14 +73,25 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, gender: String!, dob: String!): Auth
+    addUser(
+      username: String!
+      email: String!
+      password: String!
+      gender: String!
+      dob: String!
+    ): Auth
     login(password: String!, email: String!): Auth
-    updateUser(username: String!, email: String!, password: String!, gender: String!, dob: String!): Auth
+    updateUser(
+      username: String!
+      email: String!
+      password: String!
+      gender: String!
+      dob: String!
+    ): Auth
     savePodcast(podcastData: PodcastInput!): User
     removePodcast(_id: ID!): User
     addPodcast(podcasts: [ID]!): Podcast
   }
-
 `;
 
 module.exports = typeDefs;

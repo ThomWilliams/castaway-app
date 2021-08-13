@@ -50,11 +50,6 @@ export default function Home() {
         </div>
         <div className="boxes">
           <div className="box">Title 1</div>
-          <div className="box">Title 2</div>
-          <div className="box">Title 3</div>
-          <div className="box">Title 4</div>
-          <div className="box">Title 5</div>
-          <div className="box">Title 6</div>
         </div>
       </section> */}
     </div>

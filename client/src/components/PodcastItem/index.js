@@ -71,12 +71,13 @@ function PodcastItem() {
             <div>
               <div className="title">
                 <h1>{data.podcast.title}</h1>
-                <div className="a-style"
+                <div
+                  className="a-style"
                   onClick={() => {
                     history.goBack();
                   }}
                 >
-                    <h2>← Go Back</h2>
+                  <h2>← Go Back</h2>
                 </div>
               </div>
 
@@ -122,7 +123,7 @@ function PodcastItem() {
                 />
 
                 <div className="podcast-info">
-                  <div dangerouslySetInnerHTML={{__html: data.description}} />
+                  <div dangerouslySetInnerHTML={{ __html: data.description }} />
                 </div>
               </div>
             </div>

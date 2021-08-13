@@ -7,7 +7,9 @@ export default function Header() {
   return (
     <header>
       <div className="logo">
-      <Link to="/"><Logo className="icon" /></Link>
+        <Link to="/">
+          <Logo className="icon" />
+        </Link>
       </div>
     </header>
   );

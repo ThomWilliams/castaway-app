@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { LOGIN } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 function Login(props) {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
@@ -30,7 +30,7 @@ function Login(props) {
   };
 
   return (
-      <div>
+    <div>
       <div className="title">
         <h1>Login</h1>
         <Link to="/signup">
@@ -40,7 +40,9 @@ function Login(props) {
 
       <form className="form" onSubmit={handleFormSubmit}>
         <div className="element">
-          <label className="label" htmlFor="email">Email address:</label>
+          <label className="label" htmlFor="email">
+            Email address:
+          </label>
           <input
             placeholder="youremail@test.com"
             name="email"
@@ -50,7 +52,9 @@ function Login(props) {
           />
         </div>
         <div className="element">
-          <label className="label" htmlFor="pwd">Password:</label>
+          <label className="label" htmlFor="pwd">
+            Password:
+          </label>
           <input
             placeholder="******"
             name="password"
@@ -65,7 +69,9 @@ function Login(props) {
           </div>
         ) : null}
         <div>
-          <button className="button" type="submit">Submit</button>
+          <button className="button" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
