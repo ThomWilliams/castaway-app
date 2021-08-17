@@ -116,7 +116,9 @@ thomwilliams1990@gmail.com
 
 ![Homepage](client/src/assets/home.png)
 
-![Podcast](client/src/assets/single.png)
+![Podcast](client/src/assets/podcast.png)
+
+![Podcast](client/src/assets/episode.png)
 
 ![Search](client/src/assets/search.png)
 
@@ -126,7 +128,7 @@ thomwilliams1990@gmail.com
 
 ## Deployment / Links
 
-- Deployed App: [Heroku](https://castaway-podcast-app.herokuapp.com/)
+- Deployed App: [Heroku](https://podcastaway-app.herokuapp.com/)
 
 - Project Repository: [GitHub](https://github.com/ThomWilliams/castaway-app)
 
